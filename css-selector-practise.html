@@ -41,11 +41,11 @@
       color: orange;
     }
 
-    div>a[href^="mailto"i] {
+    div>a[href^="mailto:"i] {
       color: blue;
     }
 
-    div>a[href^="tel"] {
+    div>a[href^="tel:"] {
       color: yellow;
     }
 
@@ -53,7 +53,7 @@
       font-size: 30px;
     }
 
-    div.a li:nth-child(n+4):nth-last-child(n+9),
+    div.a li:nth-child(n+4):nth-child(-n+7),
     div.a li:nth-child(n+11):nth-last-child(n+4) {
       color: red;
     }
@@ -74,11 +74,13 @@
       color: blue;
     }
 
+    /* 2n筛出所有2的倍数，由于n从0开始，同时要求不能筛出2，因此表达式为
+       2(n+2)，该形式不是CSS允许的An+B格式，展开得到2n+4 */
+
     div.prime li:nth-child(2n+4),
     div.prime li:nth-child(3n+6),
     div.prime li:nth-child(5n+10),
-    div.prime li:nth-child(7n+14),
-    div.prime li:nth-child(11n+22) {
+    div.prime li:nth-child(7n+14) {
       color: red;
     }
   </style>
