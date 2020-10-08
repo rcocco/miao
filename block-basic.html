@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>block-basic</title>
+</head>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    padding: 0;
+    margin: 0;
+  }
+
+  div.a {
+    min-width: 600px;
+    width: 100%;
+    margin: 20px;
+    /* 为什么总是会有滚动条？ */
+    background-color: red;
+  }
+
+  div.a p {
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  div.main {
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid;
+    padding: 20px 0;
+  }
+
+  div.bar {
+    height: 50px;
+    background-color: #ee82ee;
+    margin: 0px 12px;
+  }
+
+  div.bar:hover {
+    margin: 0;
+  }
+
+  div.main p {
+    height: 65px;
+    overflow: auto;
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+
+  div.main p:first-of-type {
+    margin-top: 0;
+  }
+
+  div.main p:nth-of-type(2) {
+    margin-bottom: 0;
+  }
+
+  div.triangle {
+    width: 100px;
+    height: 100px;
+    border: 50px solid #ffffff;
+    border-bottom: 50px solid #FFA500;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
+
+<body>
+  <div class="a">
+    <p>aaaaa</p>
+  </div>
+  <div class="main">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae sapiente voluptas officiis, praesentium, nemo
+      iure cumque nihil, facere hic asperiores dicta commodi magni, voluptates eaque esse atque nesciunt! Cupiditate,
+      modi.</p>
+    <div class="bar"></div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos modi accusantium deleniti consequuntur, enim nulla
+      voluptatum qui ducimus esse rem eius eligendi consequatur sint. Sunt ut, est iusto neque numquam. Lorem ipsum
+      dolor sit amet, consectetur adipisicing elit. Laboriosam animi perspiciatis eos, molestias provident, quae ullam!
+      Obcaecati suscipit optio labore iusto veniam facere, amet officiis, eveniet voluptatibus molestiae, dignissimos
+      dolor!</p>
+  </div>
+  <div class="triangle"></div>
+</body>
+
+</html>
