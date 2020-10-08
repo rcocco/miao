@@ -18,9 +18,12 @@
 
   div.a {
     min-width: 600px;
-    width: 100%;
+    /* width: 100%; */
+    width: auto;
     margin: 20px;
-    /* 为什么总是会有滚动条？ */
+    /* 为什么总是会有滚动条？
+       width : auto解决了
+     */
     background-color: red;
   }
 
@@ -35,13 +38,13 @@
     margin-left: auto;
     margin-right: auto;
     border: 2px solid;
-    padding: 20px 0;
+    padding: 16px 0;
   }
 
   div.bar {
     height: 50px;
     background-color: #ee82ee;
-    margin: 0px 12px;
+    margin: 0px 10px;
   }
 
   div.bar:hover {
@@ -49,10 +52,10 @@
   }
 
   div.main p {
-    height: 65px;
+    height: 64px;
     overflow: auto;
-    margin-left: 12px;
-    margin-right: 12px;
+    margin-left: 10px;
+    margin-right: 10px;
   }
 
   div.main p:first-of-type {
@@ -70,6 +73,7 @@
     border-bottom: 50px solid #FFA500;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 20px;
   }
 </style>
 
