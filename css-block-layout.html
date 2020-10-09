@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    header {
+      background-color: black;
+    }
+
+    header p {
+      margin: 0;
+      color: white;
+      width: 600px;
+      margin: auto;
+    }
+
+    main {
+      width: 600px;
+      margin: auto;
+    }
+
+    main>ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    /* 卡片公共样式 */
+
+    main>ul.card>li {
+      box-sizing: border-box;
+      width: 180px;
+      height: 40px;
+      margin: 15px;
+      border: 3px solid black;
+      background-color: #FFC0CB;
+      text-align: center;
+      line-height: 34px;
+      /* 边框加行框和元素高度一致 */
+    }
+
+    /* 块级卡片布局样式 */
+
+    main>ul.card.block>li:nth-child(-n+4) {
+      margin-left: 0;
+    }
+
+    main>ul.card.block>li:nth-child(n+5):nth-child(-n+8) {
+      margin-left: 210px;
+    }
+
+    main>ul.card.block>li:nth-child(n+9) {
+      margin-left: 420px;
+    }
+
+    main>ul.card.block>li:nth-child(5),
+    main>ul.card.block>li:nth-child(9) {
+      margin-top: -220px;
+    }
+
+    /* 行内块级卡片样式 */
+
+    main>ul.card.inline-block>li {
+      display: inline-block;
+      /* margin-right: 11px; */
+    }
+
+    main>ul.card.inline-block>li:nth-child(3n+1) {
+      margin-left: 0;
+    }
+
+    main>ul.card.inline-block>li:nth-child(3n+3) {
+      margin-right: 0;
+    }
+
+    /* 链接样式 */
+
+    main>ul.links {
+      margin-top: 21px;
+      margin-bottom: 17px;
+    }
+
+    main>ul.links>li:not(:last-child) {
+      border-bottom: 1px dotted black;
+    }
+
+    main>ul.links>li {
+      margin: 1px;
+    }
+
+    footer {
+      background-color: #ee8aee;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <p>hello world 请调整浏览器窗口大小查看效果</p>
+  </header>
+  <main>
+    <p>页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体
+      宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px
+      页面主体 宽度600px</p>
+    <ul class="card block">
+      <li>宽180高40(包含边框)</li>
+      <li>水平间隙30px</li>
+      <li>垂直间隙15px</li>
+      <li>边框宽度3px</li>
+      <li>产品</li>
+      <li>产品</li>
+      <li>产品</li>
+      <li>产品</li>
+      <li>产品</li>
+      <li>产品</li>
+      <li>产品</li>
+      <li>产品</li>
+    </ul>
+    <ul class="card inline-block">
+      <!-- 
+        缺少闭合标签是故意的，为了解决行内块级元素之间的空白。
+        方法一：去除源代码空白。VSCode会自动格式化，做不到。
+        方法二：负边距。依赖于字体和字号难计算。
+        方法三：字号为0。兼容性问题多。
+        方法四：省去闭合标签。OK。
+        https://css-tricks.com/fighting-the-space-between-inline-block-elements/
+      -->
+      <li>宽180高40(包含边框)
+      <li>产品
+      <li>产品
+      <li>水平间隙30px
+      <li>产品
+      <li>产品
+      <li>垂直间隙15px
+      <li>产品
+      <li>产品
+      <li>边框宽度3px
+      <li>产品
+      <li>产品
+    </ul>
+    <ul class="links">
+      <li>link</li>
+      <li>link</li>
+      <li>link</li>
+      <li>link</li>
+      <li>link</li>
+    </ul>
+  </main>
+  <footer>
+    &copy;版权所有<br>本页所有布局均使用块元素
+  </footer>
+</body>
+
+</html>
