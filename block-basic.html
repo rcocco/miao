@@ -23,6 +23,8 @@
     margin: 20px;
     /* 为什么总是会有滚动条？
        width : auto解决了
+       100%是相对于父元素宽度，由于视口只有父元素宽度那么大，在左边有20px的margin的情况下，再往右加一个父元素宽度，一定会超出，所以有滚动条。
+       auto时width值等于父元素宽度减去左右margin，于是不可能会超出。
      */
     background-color: red;
   }
