@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .flag {
+      width: 44px;
+      height: 30px;
+      display: inline-block;
+      background-image: url(flags.png);
+      background-repeat: no-repeat;
+    }
+
+    .cn {
+      /* 背景图片(245,74)的点，对齐背景区域左上角(0,0)
+         等价于
+         背景图片(0,0)的点，对齐背景区域(-245,74)
+       */
+      background-position: -245px -74px;
+    }
+
+    .kr {
+      background-position: -677px -176px;
+    }
+
+    .de {
+      background-position: -53px -142px;
+    }
+
+    .br {
+      background-position: -581px -40px;
+    }
+
+    .ca {
+      background-position: -101px -6px;
+    }
+
+    ul>li>* {
+      vertical-align: middle;
+    }
+
+    ul>li {
+      margin: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li>
+      <span>中国</span>
+      <div class="flag cn"></div>
+    </li>
+    <li>
+      <span>韩国</span>
+      <div class="flag kr"></div>
+    </li>
+    <li>
+      <span>巴西</span>
+      <div class="flag br"></div>
+    </li>
+    <li>
+      <span>德国</span>
+      <div class="flag de"></div>
+    </li>
+    <li>
+      <span>加拿大</span>
+      <div class="flag ca"></div>
+    </li>
+  </ul>
+
+</html>
