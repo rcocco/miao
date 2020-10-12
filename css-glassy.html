@@ -23,14 +23,16 @@
     }
 
     h1 {
-      height: 68px;
+      /* height: 68px; */
+      /* 放大后文字没有溢出，不该设置高度 */
       margin: 26px 6px 16px;
       background: rgb(204, 204, 204) url(glassy-gray.jpg) 0 0 no-repeat fixed;
       border: 1px solid rgb(128, 128, 128);
       font-size: 32px;
       letter-spacing: 16px;
       /* line-height: 68px; */
-      padding-top: 16px;
+      /* 文字蓝色选框低于高度，应该不是设置行高 */
+      padding: 16px 0 8px;
       text-indent: 32px;
     }
 
@@ -44,7 +46,7 @@
       background: rgb(203, 177, 150) url(glassy-tan.jpg) 0 0 no-repeat fixed;
       color: white;
       border: 1px solid rgb(153, 102, 51);
-      height: 54px;
+      /* height: 54px; */
       margin: 0 -3px;
       padding: 12px;
       font-size: 22px;
