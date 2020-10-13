@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 公共样式 */
+
+    div.outer {
+      height: 300px;
+      width: 300px;
+      background-color: pink;
+    }
+
+    div.inner {
+      width: 250px;
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    div.inner.fixed {
+      height: 250px;
+    }
+
+    /* 已知子元素高度：直接设置子元素外边距 */
+
+    div.outer.a {
+      overflow: hidden;
+    }
+
+    div.inner.a {
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
+
+    div.inner.a {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* 已知子元素高度，定位 */
+
+    div.outer.b {
+      position: relative;
+    }
+
+    div.inner.b {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+
+    /* 未知子元素高度，设为行内块级，
+   与另一个100%高度行内块级对齐 */
+
+    div.outer.c {
+      font-size: 0;
+      text-align: center;
+    }
+
+    div.outer.c::before {
+      content: "";
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+
+    div.inner.c {
+      font-size: 16px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="outer a">
+    <div class="inner fixed a">
+      <h3>已知子元素高度</h3>
+      <p>BFC不折叠外边距后，设置子元素上下边距为：父元素高度与子元素高度之差的一半</p>
+    </div>
+  </div>
+  <hr>
+  <div class="outer b">
+    <div class="inner fixed b">
+      <h3>已知子元素高度</h3>
+      <p>父元素相对定位，子元素绝对定位，top和bottom为0，外边距auto</p>
+    </div>
+  </div>
+  <hr>
+  <div class="outer c">
+    <div class="inner c">
+      <h3>未知子元素高度</h3>
+      <p>子元素设为行内块级元素，与一个高度为100%的行内块级兄弟(伪)元素对齐</p>
+    </div>
+  </div>
+</body>
+
+</html>
