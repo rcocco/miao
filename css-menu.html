@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    /* 菜单与菜单项通用样式 */
+
+    ul.menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      background-color: rgb(234, 234, 234);
+      position: absolute;
+      white-space: nowrap;
+    }
+
+    ul.menu>li {
+      position: relative;
+      background-color: rgb(234, 234, 234);
+      color: black;
+      padding: 0 10px;
+    }
+
+    /* 主菜单栏全宽 */
+
+    ul.menu.main {
+      width: 100%;
+    }
+
+    /* 主菜单项横向排列 */
+
+    ul.menu.main>li {
+      display: inline-block;
+
+    }
+
+    /* 所有菜单项悬停变色 */
+
+    ul.menu.menu>li:hover {
+      background-color: rgb(123, 186, 185);
+    }
+
+    /* 子菜单定位 */
+
+    ul.menu.sub {
+      top: 0;
+      left: 100%;
+      display: none;
+    }
+
+    /* 一级子菜单特殊定位 */
+
+    ul.menu.sub.level-1 {
+      top: 100%;
+      left: 0;
+    }
+
+    /* 悬停显示子菜单 */
+    ul.menu>li:hover>ul.menu {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <ul class="menu main">
+    <li>
+      文件
+      <ul class="menu sub level-1">
+        <li>打开</li>
+        <li>导出</li>
+        <li>退出</li>
+      </ul>
+    </li>
+    <li>
+      编辑
+      <ul class="menu sub level-1">
+        <li>
+          查找/替换▶
+          <ul class="menu sub">
+            <li>替换</li>
+            <li>替换并查找</li>
+            <li>
+              查找▶
+              <ul class="menu sub">
+                <li>查找下一个</li>
+                <li>查找上一个</li>
+              </ul>
+            </li>
+            <li>高级查找</li>
+          </ul>
+        </li>
+        <li>扩展Tab</li>
+        <li>
+          Tab Stop宽度▶
+          <ul class="menu sub">
+            <li>2个空格</li>
+            <li>4个空格</li>
+            <li>8个空格</li>
+          </ul>
+        </li>
+        <li>
+          编辑器样式▶
+          <ul class="menu sub">
+            <li>moonlight</li>
+            <li>native</li>
+            <li>pure</li>
+          </ul>
+        </li>
+        <li>
+          行号▶
+          <ul class="menu sub">
+            <li>无</li>
+            <li>绝对行号</li>
+            <li>相对行号</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>
+      Markdown
+      <ul class="menu sub level-1">
+        <li>
+          渲染器▶
+          <ul class="menu sub">
+            <li>Hoedown</li>
+            <li>Marked</li>
+            <li>Markdown-it</li>
+          </ul>
+        </li>
+        <li>渲染背景</li>
+        <li>原地预览</li>
+        <li>限制原地预览宽度</li>
+      </ul>
+    </li>
+    <li>帮助</li>
+  </ul>
+</body>
+
+</html>
