@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      position: relative;
+      border: 4px blue solid;
+      padding: 0;
+      width: 100px;
+      height: 100px;
+      text-align: center;
+    }
+
+
+    td:hover {
+      border-color: transparent;
+    }
+
+    td:hover::after {
+      position: absolute;
+      left: 0;
+      top: 0;
+      content: "";
+      width: 100%;
+      height: 100%;
+      border: 4px red solid;
+      margin: -4px;
+    }
+
+    div.container-inblock {
+      font-size: 0;
+      width: 316px;
+      height: 316px;
+    }
+
+    div.container-inblock>div.cell {
+      font-size: initial;
+      text-align: center;
+      line-height: 100px;
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      border: 4px solid blue;
+      margin-left: -4px;
+      position: relative;
+    }
+
+    div.container-inblock>div.cell.first-col {
+      margin-left: 0;
+    }
+
+    div.container-inblock>div.cell.first-row-last~.cell {
+      margin-top: -4px;
+    }
+
+    div.container-inblock>div.cell:hover {
+      border-color: red;
+      z-index: 1;
+    }
+
+    div.container-position {
+      position: relative;
+      width: 316px;
+      height: 316px;
+    }
+
+    div.container-position>div.cell {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border: 4px solid blue;
+      text-align: center;
+      line-height: 100px;
+    }
+
+    div.container-position>div.cell.r1 {
+      top: 0;
+    }
+
+    div.container-position>div.cell.r2 {
+      top: 104px;
+    }
+
+    div.container-position>div.cell.r3 {
+      top: 208px;
+    }
+
+    div.container-position>div.cell.c1 {
+      left: 0;
+    }
+
+    div.container-position>div.cell.c2 {
+      left: 104px;
+    }
+
+    div.container-position>div.cell.c3 {
+      left: 208px;
+    }
+
+    div.container-position>div.cell:hover {
+      border-color: red;
+      z-index: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>表格</h2>
+  <table>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <h2>行内块级元素</h2>
+  <div class="container-inblock">
+    <div class="cell first-col">1</div>
+    <div class="cell">2</div>
+    <div class="cell first-row-last">3</div>
+    <div class="cell first-col">4</div>
+    <div class="cell">5</div>
+    <div class="cell">6</div>
+    <div class="cell first-col">7</div>
+    <div class="cell">8</div>
+    <div class="cell">9</div>
+  </div>
+  <hr>
+  <h2>定位</h2>
+  <div class="container-position">
+    <div class="cell r1 c1">1</div>
+    <div class="cell r1 c2">2</div>
+    <div class="cell r1 c3">3</div>
+    <div class="cell r2 c1">4</div>
+    <div class="cell r2 c2">5</div>
+    <div class="cell r2 c3">6</div>
+    <div class="cell r3 c1">7</div>
+    <div class="cell r3 c2">8</div>
+    <div class="cell r3 c3">9</div>
+  </div>
+</body>
+
+</html>
