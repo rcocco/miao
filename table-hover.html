@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+    table {
+      overflow: hidden;
+    }
+
+    td {
+      border: 1px solid red;
+      position: relative;
+    }
+
+    tr:hover {
+      background-color: yellow;
+    }
+
+    /* 无穷高的有颜色伪元素，
+     * 绝对定位到左边，
+     * 上移，贯穿该列，
+     * 隐藏超出表格部分，
+     * 低于表格图层 
+     */
+
+    td:hover::after {
+      position: absolute;
+      content: "";
+      width: 100%;
+      background-color: yellow;
+      height: 10000px;
+      left: 0;
+      top: -5000px;
+      z-index: -1;
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <tbody>
+      <tr>
+        <td>aaa</td>
+        <td>aaa</td>
+        <td>aaa</td>
+        <td>aaa</td>
+      </tr>
+      <tr>
+        <td>aaa</td>
+        <td>aaa</td>
+        <td>aaa</td>
+        <td>aaa</td>
+      </tr>
+      <tr>
+        <td>aaa</td>
+        <td>aaa</td>
+        <td>aaa</td>
+        <td>aaa</td>
+      </tr>
+      <tr>
+        <td>aaa</td>
+        <td>aaa</td>
+        <td>aaa</td>
+        <td>aaa</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+
+</html>

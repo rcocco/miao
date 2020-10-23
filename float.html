@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+    section {
+      margin: 0 auto 30px;
+      background-color: yellow;
+    }
+
+    section.a {
+      width: 690px;
+      /* 3*(200+30) */
+    }
+
+    div {
+      box-sizing: border-box;
+      border: 2px solid red;
+      width: 200px;
+      height: 200px;
+      margin: 15px;
+    }
+
+    div.h-double {
+      width: 430px;
+      /* 2*200+30 */
+    }
+
+    div.v-double {
+      height: 430px;
+      /* 2*200+30 */
+    }
+
+    div.v-half {
+      height: 85px;
+      /* (200-30)/2 */
+    }
+
+    .left {
+      float: left;
+    }
+
+    .right {
+      float: right;
+    }
+
+    .clearfix::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    section.b {
+      width: 920px; /* 4*(200+30) */
+    }
+  </style>
+</head>
+
+<body>
+  <section class="clearfix a">
+    <div class="left"></div>
+    <div class="left"></div>
+    <div class="left"></div>
+    <div class="left h-double v-double"></div>
+    <div class="left"></div>
+    <div class="left"></div>
+    <div class="left"></div>
+    <div class="left"></div>
+    <div class="left"></div>
+    <div class="left"></div>
+    <div class="right h-double v-double"></div>
+    <div class="left"></div>
+  </section>
+  <section class="clearfix b">
+    <div class="left v-double"></div>
+    <div class="left"></div>
+    <div class="left"></div>
+    <div class="left"></div>
+    <div class="left"></div>
+    <div class="left"></div>
+    <div class="left v-half"></div>
+    <div class="left v-half"></div>
+
+    </secion>
+</body>
+
+</html>

@@ -1,0 +1,128 @@
+.table {
+  // 默认样式
+  // (0,1,0)
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+
+  tr {
+    // (0,1,1)
+    border-top: 1px solid rgb(222, 226, 230);
+  }
+
+  td,
+  th {
+    // (0,1,1)
+    padding: 12px;
+  }
+  &.table.table {
+    th {
+      // 任何时候左边距都为0，提高优先级大于小表格(0,2,1)
+      padding-left: 0;
+    }
+  }
+
+  > tbody {
+    > tr {
+      &:first-child {
+        // (0,2,2)
+        border-width: 2px;
+      }
+    }
+  }
+  &.table-dark {
+    // 暗色
+    // (0,2,0)
+    background-color: rgb(52, 58, 64);
+    color: white;
+
+    tr {
+      // (0,2,1)
+      border-color: rgb(69, 77, 85);
+    }
+  }
+
+  &.table-striped {
+    // 条纹
+    > tbody {
+      > tr {
+        &:nth-child(odd) {
+          // (0,3,2)
+          background-color: rgb(242, 242, 242);
+        }
+      }
+    }
+
+    &.table-dark {
+      // 暗色条纹
+      > tbody {
+        > tr {
+          &:nth-child(odd) {
+            /* (0,4,2) */
+            background-color: rgb(62, 68, 74);
+          }
+        }
+      }
+    }
+  }
+
+  &.table-bordered {
+    // 有边框
+    td,
+    th {
+      // (0,2,1)
+      border: 1px solid rgb(222, 226, 230);
+    }
+
+    &.table-dark {
+      // 暗色边框
+      td,
+      th {
+        // (0,3,1)
+        border-color: rgb(69, 77, 85);
+      }
+    }
+  }
+
+  &.table.table-borderless {
+    // 无边框
+    tr,
+    th,
+    td {
+      // (0,2,1)
+      border-style: none;
+    }
+  }
+
+  &.table-hover {
+    // 高亮
+    > tbody {
+      > tr {
+        &:hover {
+          // (0,3,2)
+          background-color: rgba(0, 0, 0, 0.0785);
+        }
+      }
+    }
+
+    &.table-dark {
+      // 暗色高亮
+      > tbody {
+        > tr {
+          &:hover {
+            background-color: rgba(255, 255, 255, 0.0785);
+          }
+        }
+      }
+    }
+  }
+
+  &.table-sm {
+    // 小表格
+    td,
+    th {
+      // (0,2,1)
+      padding: 6px;
+    }
+  }
+}
