@@ -83,7 +83,7 @@ header > div > ul > li.download_app {
 
 header > div > ul > li.download_app > div {
   position: absolute;
-  z-index: 2;
+  z-index: 1000;
   width: 124px;
   height: 0px;
   background-color: white;
@@ -122,7 +122,7 @@ header > div > ul > li.download_app:hover:before {
 
 header > div > ul > li.download_app:hover:before {
   position: absolute;
-  z-index: 2;
+  z-index: 1000;
   left: calc(50% - 8px);
   bottom: 0;
 }
@@ -185,7 +185,7 @@ header > div > div:hover {
 
 header > div > div > div {
   position: absolute;
-  z-index: 2;
+  z-index: 1000;
   width: 316px;
   height: 0px;
   background-color: white;
@@ -328,7 +328,7 @@ div.header2 > div > ul > li:nth-of-type(7):hover ~ div > div:nth-of-type(7) {
 
 div.header2 > div > ul > div {
   position: absolute;
-  z-index: 2;
+  z-index: 1000;
   width: 100%;
   min-width: 1226px;
   height: 0px;
@@ -395,7 +395,7 @@ div.header2 > div > ul > div > div > ul > li:nth-of-type(n+2)::before {
   position: absolute;
   left: 0;
   top: 35px;
-  z-index: 2;
+  z-index: 500;
   width: 1px;
   height: 100px;
   background-color: #e0e0e0;
@@ -465,7 +465,7 @@ div.slider-menu > div.slider-show > input {
 }
 
 div.slider-menu > div.slider-show > input:nth-of-type(1):checked ~ div:nth-of-type(1) > a {
-  z-index: 2;
+  z-index: 800;
 }
 
 div.slider-menu > div.slider-show > input:nth-of-type(1):checked ~ div:nth-of-type(1) > a > img {
@@ -473,7 +473,7 @@ div.slider-menu > div.slider-show > input:nth-of-type(1):checked ~ div:nth-of-ty
 }
 
 div.slider-menu > div.slider-show > input:nth-of-type(1):checked ~ div:nth-of-type(1) > label {
-  z-index: 2;
+  z-index: 800;
 }
 
 div.slider-menu > div.slider-show > input:nth-of-type(1):checked ~ div.slider-bullet > label:nth-of-type(1) {
@@ -481,7 +481,7 @@ div.slider-menu > div.slider-show > input:nth-of-type(1):checked ~ div.slider-bu
 }
 
 div.slider-menu > div.slider-show > input:nth-of-type(2):checked ~ div:nth-of-type(2) > a {
-  z-index: 2;
+  z-index: 800;
 }
 
 div.slider-menu > div.slider-show > input:nth-of-type(2):checked ~ div:nth-of-type(2) > a > img {
@@ -489,7 +489,7 @@ div.slider-menu > div.slider-show > input:nth-of-type(2):checked ~ div:nth-of-ty
 }
 
 div.slider-menu > div.slider-show > input:nth-of-type(2):checked ~ div:nth-of-type(2) > label {
-  z-index: 2;
+  z-index: 800;
 }
 
 div.slider-menu > div.slider-show > input:nth-of-type(2):checked ~ div.slider-bullet > label:nth-of-type(2) {
@@ -497,7 +497,7 @@ div.slider-menu > div.slider-show > input:nth-of-type(2):checked ~ div.slider-bu
 }
 
 div.slider-menu > div.slider-show > input:nth-of-type(3):checked ~ div:nth-of-type(3) > a {
-  z-index: 2;
+  z-index: 800;
 }
 
 div.slider-menu > div.slider-show > input:nth-of-type(3):checked ~ div:nth-of-type(3) > a > img {
@@ -505,7 +505,7 @@ div.slider-menu > div.slider-show > input:nth-of-type(3):checked ~ div:nth-of-ty
 }
 
 div.slider-menu > div.slider-show > input:nth-of-type(3):checked ~ div:nth-of-type(3) > label {
-  z-index: 2;
+  z-index: 800;
 }
 
 div.slider-menu > div.slider-show > input:nth-of-type(3):checked ~ div.slider-bullet > label:nth-of-type(3) {
@@ -513,7 +513,7 @@ div.slider-menu > div.slider-show > input:nth-of-type(3):checked ~ div.slider-bu
 }
 
 div.slider-menu > div.slider-show > input:nth-of-type(4):checked ~ div:nth-of-type(4) > a {
-  z-index: 2;
+  z-index: 800;
 }
 
 div.slider-menu > div.slider-show > input:nth-of-type(4):checked ~ div:nth-of-type(4) > a > img {
@@ -521,7 +521,7 @@ div.slider-menu > div.slider-show > input:nth-of-type(4):checked ~ div:nth-of-ty
 }
 
 div.slider-menu > div.slider-show > input:nth-of-type(4):checked ~ div:nth-of-type(4) > label {
-  z-index: 2;
+  z-index: 800;
 }
 
 div.slider-menu > div.slider-show > input:nth-of-type(4):checked ~ div.slider-bullet > label:nth-of-type(4) {
@@ -529,7 +529,7 @@ div.slider-menu > div.slider-show > input:nth-of-type(4):checked ~ div.slider-bu
 }
 
 div.slider-menu > div.slider-show > input:nth-of-type(5):checked ~ div:nth-of-type(5) > a {
-  z-index: 2;
+  z-index: 800;
 }
 
 div.slider-menu > div.slider-show > input:nth-of-type(5):checked ~ div:nth-of-type(5) > a > img {
@@ -537,7 +537,7 @@ div.slider-menu > div.slider-show > input:nth-of-type(5):checked ~ div:nth-of-ty
 }
 
 div.slider-menu > div.slider-show > input:nth-of-type(5):checked ~ div:nth-of-type(5) > label {
-  z-index: 2;
+  z-index: 800;
 }
 
 div.slider-menu > div.slider-show > input:nth-of-type(5):checked ~ div.slider-bullet > label:nth-of-type(5) {
@@ -561,7 +561,7 @@ div.slider-menu > div.slider-show > div:not(.slider-bullet) > a > img {
 
 div.slider-menu > div.slider-show > div:not(.slider-bullet) > label {
   position: absolute;
-  z-index: 1;
+  z-index: 800;
   top: 50%;
   margin-top: -35px;
   width: 41px;
@@ -591,7 +591,7 @@ div.slider-menu > div.slider-show > div.slider-bullet {
   position: absolute;
   right: 30px;
   bottom: 25px;
-  z-index: 2;
+  z-index: 800;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -619,7 +619,7 @@ div.slider-menu > ul {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 3;
+  z-index: 900;
   background-color: rgba(105, 101, 101, 0.6);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -687,7 +687,7 @@ div.slider-menu > ul > li > ul {
   background-color: white;
   position: absolute;
   top: 0;
-  z-index: 1;
+  z-index: 1000;
   left: 100%;
   display: none;
   -webkit-box-orient: horizontal;

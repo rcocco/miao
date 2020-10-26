@@ -67,7 +67,7 @@ a.bar {
   position: relative;
   > div {
     position: absolute;
-    z-index: 2;
+    z-index: 1000;
     width: $width;
     height: 0px;
     background-color: white;
@@ -154,7 +154,7 @@ header {
             @include triangle(up, 8px, white);
             &:before {
               position: absolute;
-              z-index: 2;
+              z-index: 1000;
               left: calc(50% - 8px);
               bottom: 0;
             }
@@ -302,7 +302,7 @@ div.header2 {
       }
       > div {
         position: absolute;
-        z-index: 2;
+        z-index: 1000;
         width: 100%;
         min-width: 1226px;
         height: 0px;
@@ -358,7 +358,7 @@ div.header2 {
                   position: absolute;
                   left: 0;
                   top: 35px;
-                  z-index: 2;
+                  z-index: 500;
                   width: 1px;
                   height: 100px;
                   background-color: #e0e0e0;
@@ -427,13 +427,13 @@ div.slider-menu {
         &:nth-of-type(#{$i}):checked {
           ~ div:nth-of-type(#{$i}){
             > a {
-              z-index: 2;
+              z-index: 800;
               > img{
                 opacity: 1;
               }
             }
             > label {
-              z-index: 2;
+              z-index: 800;
             }
           }
           ~ div.slider-bullet {
@@ -460,7 +460,7 @@ div.slider-menu {
         }
         >label{
           position: absolute;
-          z-index: 1;
+          z-index: 800;
           top: 50%;
           margin-top: -35px;
           width: 41px;
@@ -486,7 +486,7 @@ div.slider-menu {
         position: absolute;
         right: 30px;
         bottom: 25px;
-        z-index: 2;
+        z-index: 800;
         display: flex;
         > label {
           width: 6px;
@@ -511,7 +511,7 @@ div.slider-menu {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 3;
+    z-index: 900;
     background-color: rgba(105, 101, 101, 0.6);
     display: flex;
     flex-direction: column;
@@ -565,7 +565,7 @@ div.slider-menu {
         background-color: white;
         position: absolute;
         top: 0;
-        z-index: 1;
+        z-index: 1000;
         left: 100%;
         display: none;
         // display: flex;
