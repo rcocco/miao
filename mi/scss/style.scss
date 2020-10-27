@@ -24,6 +24,10 @@
   content: "\E628";
 }
 
+.icon-circle-right-arrow::before {
+  content: "\E615";
+}
+
 body {
   margin: 0;
   overflow-y: scroll;
@@ -125,6 +129,126 @@ header2下滑菜单 900
       border-left-color: $triangle_color;
       border-right-width: 0;
     }
+  }
+}
+
+@mixin hover3d{
+  transition: all .2s linear;
+  &:hover {
+    box-shadow: 0 15px 30px rgba(0,0,0,.1);
+    transform: translate3d(0,-2px,0);
+  }
+}
+
+@mixin product{
+  display: inline-block;
+  vertical-align: top;
+  width: 234px;
+  height: 260px;
+  padding: 20px 0;
+  background-color: white;
+  font-size: 16px;
+  text-align: center;
+  @include hover3d;
+  > img {
+    display: block;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 18px;
+  }
+  > h3 {
+    font-size: 14px;
+    line-height: 21px;
+    color: #212121;
+    font-weight: 400;
+    margin: 0 10px 2px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  > p.desc {
+    height: 18px;
+    margin: 0 10px 10px;
+    font-size: 12px;
+    text-overflow: ellipsis;
+    color: #b0b0b0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  > p.price {
+    font-size: 14px;
+    margin:0 10px 14px;
+    > span {
+      color: #ff6709;
+    }
+    >del {
+      color: #b0b0b0;
+    }
+  }
+}
+
+@mixin product-less{
+  display: inline-block;
+  vertical-align: top;
+  width: 234px;
+  height: 103px;
+  padding-top: 40px;
+  background-color: white;
+  font-size: 16px;
+  text-align: left;
+  @include hover3d;
+  > img {
+    float:right;
+    vertical-align: top;
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+    margin-top: -8px;
+  }
+  > h3 {
+    font-size: 14px;
+    line-height: 21px;
+    color: #333;
+    font-weight: 400;
+    margin: 0 110px 5px 30px;
+  }
+  > p.price {
+    font-size: 14px;
+    margin:0 110px 0 30px;
+    color: #ff6709;
+  }
+}
+
+@mixin view-more {
+  // 没写完
+  display: inline-block;
+  vertical-align: top;
+  width: 234px;
+  height: 103px;
+  padding-top: 40px;
+  background-color: white;
+  font-size: 16px;
+  text-align: left;
+  @include hover3d;
+  > span {
+    float:right;
+    vertical-align: top;
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+    margin-top: -8px;
+  }
+  > h3 {
+    font-size: 14px;
+    line-height: 21px;
+    color: #333;
+    font-weight: 400;
+    margin: 0 110px 5px 30px;
+  }
+  > p.price {
+    font-size: 14px;
+    margin:0 110px 0 30px;
+    color: #ff6709;
   }
 }
 
@@ -319,8 +443,10 @@ div.header2 {
             &:hover {
               ~ div {
                 > div {
+                  transition: none;
                   &:nth-of-type(#{$i}){
-                    display: block;
+                    // display: block;
+                    visibility: visible;
                   }
                 }
               }
@@ -337,8 +463,6 @@ div.header2 {
         left: 0;
         top: 100%;
         background-color: white;
-        //box-shadow: 0 1px 5px #aaa;
-        //box-shadow: 0 3px 4px rgba(0,0,0,.18);
         box-shadow: 0 1px 5px rgba(0,0,0,.18);
         transition: height 0.3s 0.1s;
         overflow: hidden;
@@ -349,10 +473,13 @@ div.header2 {
         > div {
           width: 100%;
           height: 229px;
-          // background-color: pink;
-          display: none;
+          visibility: hidden;
+          transition: visibility 999s 999s;
+          position: absolute;
+          // display: none; // visibility
           &:hover {
-            display: block;
+            // display: block;
+            visibility: visible;
           }
           > ul {
             display: flex;
@@ -699,10 +826,8 @@ main {
   padding: 4px 0 12px;
   margin-top: 26px;
   background-color: #f5f5f5;
-  > div.flash-sale {
+  > div {
     @include center-container;
-    @include clearfix;
-    position: relative;
     > h2 {
       margin: 0;
       font-size: 22px;
@@ -710,173 +835,316 @@ main {
       line-height: 58px;
       color: #333;
     }
-    >div.countdown {
-      width: 234px;
-      height: 300px;
-      float: left;
-      margin-right: 14px;
-      padding-top: 39px;
-      border-top: 1px solid #e53935;
-      background-color: rgb(241, 237, 237);
-      > p {
-        text-align: center;
-        margin: 0;
-        &:nth-of-type(1){
-          font-size: 21px;
-          color: #ef3a3b;
-          padding-top: 15px;
-        }
-        &:nth-of-type(2){
-          font-size: 15px;
-          color: rgba(0,0,0,.54);
-        }
-        &:nth-of-type(3){
-          margin-top: 28px;
-          .hour, .minute, .second {
-            display: inline-block;
-            text-align: center;
-            width: 46px;
-            height: 46px;
-            background-color: #605751;
-            color: #fff;
-            font-size: 24px;
-            line-height: 46px;
+    &.flash-sale {
+      @include clearfix;
+      position: relative;
+      >div.countdown {
+        width: 234px;
+        height: 300px;
+        float: left;
+        margin-right: 14px;
+        padding-top: 39px;
+        border-top: 1px solid #e53935;
+        background-color: rgb(241, 237, 237);
+        > p {
+          text-align: center;
+          margin: 0;
+          &:nth-of-type(1){
+            font-size: 21px;
+            color: #ef3a3b;
+            padding-top: 15px;
           }
-           .colon {
-            display: inline-block;
-            text-align:center;
-            width: 15px;
-            height: 46px;
-            color: #605751;
-            font-size: 28px;
-            line-height: 46px;
+          &:nth-of-type(2){
+            font-size: 15px;
+            color: rgba(0,0,0,.54);
           }
+          &:nth-of-type(3){
+            margin-top: 28px;
+            .hour, .minute, .second {
+              display: inline-block;
+              text-align: center;
+              width: 46px;
+              height: 46px;
+              background-color: #605751;
+              color: #fff;
+              font-size: 24px;
+              line-height: 46px;
+            }
+             .colon {
+              display: inline-block;
+              text-align:center;
+              width: 15px;
+              height: 46px;
+              color: #605751;
+              font-size: 28px;
+              line-height: 46px;
+            }
+          }
+        }
+        > img {
+          display: block;
+          margin: 25px auto;
         }
       }
-      > img {
-        display: block;
-        margin: 25px auto;
+      >div.slider-four {
+        width: 978px;
+        height: 340px;
+        float: left;
+        overflow: hidden;
+        // padding-top: 39px;
+        // border-top: 1px solid #e53935;
+        background-color: rgb(241, 237, 237);
+        font-size: 0;
+        white-space: nowrap;
+        >input {
+          display: none;
+          @for $i from 1 through 6 {
+            &:nth-of-type(#{$i}):checked {
+              ~ a{
+                transform: translate(-992px * ($i - 1));
+              }
+              ~ div.flash-labels {
+                > div:nth-of-type(#{$i}){
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+        // 选中后，改变label位置，改变label中的字符，平移下面的条
+        > div.flash-labels{
+          position: absolute;
+          width: 70px;
+          height: 24px;
+          top: 24px;
+          right: 0;
+          overflow: hidden;
+          > div {
+            display: none;
+          }
+          label {
+            display: inline-block;
+            margin-left: -1px;
+            width: 24px;
+            height: 16px;
+            // background-color: black;
+            padding: 3px 5px;
+            border: 1px solid #e0e0e0;
+            text-align: center;
+            color: #b0b0b0;
+            font-size: 16px;
+            line-height: 16px;
+            cursor: pointer;
+            &.disabled {
+              color: #e0e0e0;
+              cursor: default;
+            }
+            &:not(.disabled):hover{
+              color: #ff6700;
+            }
+          }
+        }
+        > a {
+          // let mlist = document.querySelectorAll('#J_flashSaleList > ul > li.swiper-slide');
+          // var tag = "";
+          // for(let i=0;i<mlist.length;i++){
+          //   let src = mlist[i].children[0].children[0].children[0].children[0].src;
+          //   let title = mlist[i].children[0].children[0].children[1].textContent;
+          //   let desc = mlist[i].children[0].children[0].children[2].textContent;
+          //   let price = mlist[i].children[0].children[0].children[3].children[0].textContent;
+          //   let del_price = mlist[i].children[0].children[0].children[3].children[1].textContent;
+          //   let s = "<a href=\"https://www.mi.com/buy/seckill\">\n  <img src=\""+src+"\">\n  <h3>"+title+"</h3>\n  <p class=\"desc\">"+desc+"</p>\n <p class=\"price\"><span>"+price+"元</span> <del>"+del_price+"元</del></p>\n</a>\n";
+          //   tag += s;
+          // }
+          // console.log(tag);
+          display: inline-block;
+          vertical-align: top;
+          width: 234px;
+          height: 300px;
+          margin-right: 14px;
+          padding-top: 39px;
+          background-color: rgb(250,250,250);
+          border-top: 1px solid #e53935; // 颜色不一样
+          transition: transform 0.6s;
+          font-size: 16px;
+          text-align: center;
+          > img {
+            display: block;
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 22px;
+          }
+          > h3 {
+            font-size: 14px;
+            color: #212121;
+            font-weight: 400;
+            margin: 0 20px 3px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+          }
+          > p.desc {
+            height: 18px;
+            margin: 0 20px 12px;
+            font-size: 12px;
+            text-overflow: ellipsis;
+            color: #b0b0b0;
+            overflow: hidden;
+            white-space: nowrap;
+          }
+          > p.price {
+            font-size: 14px;
+            > span {
+              color: #ff6709;
+            }
+            >del {
+              color: #b0b0b0;
+            }
+          }
+          &:nth-of-type(5n+1){
+            border-top-color: rgb(255,172,19);
+          }
+          &:nth-of-type(5n+2){
+            border-top-color: rgb(131,196,78);
+          }
+          &:nth-of-type(5n+3){
+            border-top-color: rgb(33,150,243);
+          }
+          &:nth-of-type(5n+4){
+            border-top-color: rgb(229,57,53);
+          }
+          &:nth-of-type(5n+5){
+            border-top-color: rgb(0,192,165);
+          }
+        }
       }
     }
-    >div.slider-four {
-      width: 978px;
-      height: 340px;
-      float: left;
-      overflow: hidden;
-      // padding-top: 39px;
-      // border-top: 1px solid #e53935;
-      background-color: rgb(241, 237, 237);
+    &.phone {
+      position: relative;
       font-size: 0;
-      white-space: nowrap;
-      >input {
-        display: none;
-        @for $i from 1 through 6 {
-          &:nth-of-type(#{$i}):checked {
-            ~ a{
-              transform: translate(-992px * ($i - 1));
+      > a{
+        &:nth-of-type(1){
+          display: block;
+          position: absolute;
+          top: 0;
+          right: 0;
+          font-size: 16px;
+          line-height: 58px;
+          color: #424242;
+          transition: all 0.4s;
+          > span {
+            padding: 4px;
+            font-size: 12px;
+            border-radius: 16px;
+            margin-left: 8px;
+            background-color: #b0b0b0;
+            color: white;
+            vertical-align: 1px;
+            transition: all 0.4s;
+          }
+          &:hover {
+            color: #ff6700;
+            > span {
+              background-color: #ff6700;
             }
-            ~ div.flash-labels {
-              > div:nth-of-type(#{$i}){
-                display: block;
+          }
+        }
+        &:nth-of-type(2){
+          display: inline-block;
+          width: 234px;
+          height: 614px;
+          margin-right: 14px;
+          @include hover3d;
+          > img {
+            vertical-align: top;
+          }
+        }
+      }
+      > div{
+        // let mlist = document.querySelectorAll('#app > div.page-main.home-main > div > div:nth-child(3) > div.box-bd.clearfix > div > div.span16 > ul > li.brick-item');
+        // var tag = "";
+        // for(let i=0;i<mlist.length;i++){
+        //   let href = mlist[i].children[0].href;
+        //   let src = mlist[i].children[0].children[0].children[0].src;
+        //   let title = mlist[i].children[0].children[1].textContent.trim();
+        //   let desc = mlist[i].children[0].children[2].textContent;
+        //   let d = mlist[i].children[0].children[3].querySelector('del');
+        //   let price = mlist[i].children[0].children[3].textContent;
+        //   let del_price = "";
+        //   if(d !== null){
+        //     del_price = d.textContent;
+        //     price = price.replace(del_price,"")
+        //   }
+        //   let s = "<a href=\""+href+"\">\n  <img src=\""+src+"\">\n  <h3>"+title+"</h3>\n  <p class=\"desc\">"+desc+"</p>\n <p class=\"price\"><span>"+price+"</span> <del>"+del_price+"</del></p>\n</a>\n";
+        //   tag += s;
+        // }
+        // console.log(tag);
+        font-size: 14px;
+        display: inline-flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: space-between;
+        vertical-align: top;
+        width: 978px;
+        height: 614px;
+        > a {
+          @include product;
+        }
+      }
+    }
+    &.home-electronics{
+      font-size: 0;
+      > div {
+        display: inline-block;
+        vertical-align: top;
+        &:nth-of-type(1){
+          width: 234px;
+          height: 614px;
+          margin-right: 14px;
+          > a {
+            display: block;
+            @include hover3d;
+            > img {
+              width: 234px;
+              height: 300px;
+              vertical-align: top;
+              &:nth-of-type(1){
+                margin-bottom: 14px;
+              }
+            }
+          }
+        }
+        &:nth-of-type(2){
+          > div {
+            display: flex;
+            width: 978px;
+            height: 614px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-content: space-between;
+            > a{
+              @include product;
+            }
+            > div {
+              width: 234px;
+              height: 300px;
+              background-color: pink;
+              > a {
+                @include product-less;
               }
             }
           }
         }
       }
-      // 选中后，改变label位置，改变label中的字符，平移下面的条
-      > div.flash-labels{
-        position: absolute;
-        width: 70px;
-        height: 24px;
-        top: 24px;
-        right: 0;
-        overflow: hidden;
-        > div {
-          display: none;
-        }
-        label {
-          display: inline-block;
-          margin-left: -1px;
-          width: 24px;
-          height: 16px;
-          // background-color: black;
-          padding: 3px 5px;
-          border: 1px solid #e0e0e0;
-          text-align: center;
-          color: #b0b0b0;
-          font-size: 16px;
-          line-height: 16px;
-          cursor: pointer;
-          &.disabled {
-            color: #e0e0e0;
-            cursor: default;
-          }
-          &:not(.disabled):hover{
-            color: #ff6700;
-          }
-        }
-      }
-      > a {
-        display: inline-block;
-        vertical-align: top;
-        width: 234px;
-        height: 300px;
-        margin-right: 14px;
-        padding-top: 39px;
-        background-color: rgb(250,250,250);
-        border-top: 1px solid #e53935; // 颜色不一样
-        transition: transform 0.6s;
-        font-size: 16px;
-        text-align: center;
-        > img {
-          display: block;
-          width: 160px;
-          height: 160px;
-          margin: 0 auto 22px;
-        }
-        > h3 {
-          font-size: 14px;
-          color: #212121;
-          font-weight: 400;
-          margin: 0 20px 3px;
-          text-overflow: ellipsis;
-          overflow: hidden;
-          white-space: nowrap;
-        }
-        > p.desc {
-          height: 18px;
-          margin: 0 20px 12px;
-          font-size: 12px;
-          text-overflow: ellipsis;
-          color: #b0b0b0;
-          overflow: hidden;
-          white-space: nowrap;
-        }
-        > p.price {
-          font-size: 14px;
-          > span {
-            color: #ff6709;
-          }
-          >del {
-            color: #b0b0b0;
-          }
-        }
-        &:nth-of-type(1+5n){
-          border-top-color: rgb(255,172,19);
-        }
-        &:nth-of-type(2+5n){
-          border-top-color: rgb(131,196,78);
-        }
-        &:nth-of-type(3+5n){
-          border-top-color: rgb(33,150,243);
-        }
-        &:nth-of-type(4+5n){
-          border-top-color: rgb(229,57,53);
-        }
-        &:nth-of-type(5+5n){
-          border-top-color: rgb(0,192,165);
-        }
-      }
+    }
+  }
+  > a {
+    display: block;
+    @include center-container;
+    margin-top: 36px;
+    margin-bottom: 22px;
+    > img {
+      vertical-align:top;
     }
   }
 }
