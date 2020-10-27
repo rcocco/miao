@@ -21,6 +21,10 @@
   content: "\E623";
 }
 
+.icon-left-arrow::before {
+  content: "\E628";
+}
+
 body {
   margin: 0;
   overflow-y: scroll;
@@ -137,6 +141,7 @@ header > div > ul > li.download_app:hover:before {
 
 header > div > ul > li > a {
   color: #b0b0b0;
+  padding: 10px 0;
 }
 
 header > div > ul:nth-of-type(1) {
@@ -188,7 +193,25 @@ header > div > div {
 
 header > div > div:hover {
   background-color: white;
+}
+
+header > div > div:hover > a {
   color: #ff6700;
+}
+
+header > div > div > a {
+  display: inline-block;
+  width: 120px;
+  height: 40px;
+  color: #b0b0b0;
+}
+
+header > div > div > a > span {
+  font-size: 20px;
+  line-height: 20px;
+  margin-right: 4px;
+  vertical-align: -4px;
+  -webkit-text-stroke-width: 0.2px;
 }
 
 header > div > div > div {
@@ -207,14 +230,6 @@ header > div > div > div {
 
 header > div > div:hover > div {
   height: 100px;
-}
-
-header > div > div > span {
-  font-size: 20px;
-  line-height: 20px;
-  margin-right: 4px;
-  vertical-align: -4px;
-  -webkit-text-stroke-width: 0.2px;
 }
 
 header > div > div > div > span {
@@ -818,5 +833,256 @@ main {
 main > div.flash-sale {
   width: 1226px;
   margin: auto;
+  position: relative;
+}
+
+main > div.flash-sale:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+main > div.flash-sale > h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 200;
+  line-height: 58px;
+  color: #333;
+}
+
+main > div.flash-sale > div.countdown {
+  width: 234px;
+  height: 300px;
+  float: left;
+  margin-right: 14px;
+  padding-top: 39px;
+  border-top: 1px solid #e53935;
+  background-color: #f1eded;
+}
+
+main > div.flash-sale > div.countdown > p {
+  text-align: center;
+  margin: 0;
+}
+
+main > div.flash-sale > div.countdown > p:nth-of-type(1) {
+  font-size: 21px;
+  color: #ef3a3b;
+  padding-top: 15px;
+}
+
+main > div.flash-sale > div.countdown > p:nth-of-type(2) {
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+main > div.flash-sale > div.countdown > p:nth-of-type(3) {
+  margin-top: 28px;
+}
+
+main > div.flash-sale > div.countdown > p:nth-of-type(3) .hour, main > div.flash-sale > div.countdown > p:nth-of-type(3) .minute, main > div.flash-sale > div.countdown > p:nth-of-type(3) .second {
+  display: inline-block;
+  text-align: center;
+  width: 46px;
+  height: 46px;
+  background-color: #605751;
+  color: #fff;
+  font-size: 24px;
+  line-height: 46px;
+}
+
+main > div.flash-sale > div.countdown > p:nth-of-type(3) .colon {
+  display: inline-block;
+  text-align: center;
+  width: 15px;
+  height: 46px;
+  color: #605751;
+  font-size: 28px;
+  line-height: 46px;
+}
+
+main > div.flash-sale > div.countdown > img {
+  display: block;
+  margin: 25px auto;
+}
+
+main > div.flash-sale > div.slider-four {
+  width: 978px;
+  height: 340px;
+  float: left;
+  overflow: hidden;
+  background-color: #f1eded;
+  font-size: 0;
+  white-space: nowrap;
+}
+
+main > div.flash-sale > div.slider-four > input {
+  display: none;
+}
+
+main > div.flash-sale > div.slider-four > input:nth-of-type(1):checked ~ a {
+  -webkit-transform: translate(0px);
+          transform: translate(0px);
+}
+
+main > div.flash-sale > div.slider-four > input:nth-of-type(1):checked ~ div.flash-labels > div:nth-of-type(1) {
+  display: block;
+}
+
+main > div.flash-sale > div.slider-four > input:nth-of-type(2):checked ~ a {
+  -webkit-transform: translate(-992px);
+          transform: translate(-992px);
+}
+
+main > div.flash-sale > div.slider-four > input:nth-of-type(2):checked ~ div.flash-labels > div:nth-of-type(2) {
+  display: block;
+}
+
+main > div.flash-sale > div.slider-four > input:nth-of-type(3):checked ~ a {
+  -webkit-transform: translate(-1984px);
+          transform: translate(-1984px);
+}
+
+main > div.flash-sale > div.slider-four > input:nth-of-type(3):checked ~ div.flash-labels > div:nth-of-type(3) {
+  display: block;
+}
+
+main > div.flash-sale > div.slider-four > input:nth-of-type(4):checked ~ a {
+  -webkit-transform: translate(-2976px);
+          transform: translate(-2976px);
+}
+
+main > div.flash-sale > div.slider-four > input:nth-of-type(4):checked ~ div.flash-labels > div:nth-of-type(4) {
+  display: block;
+}
+
+main > div.flash-sale > div.slider-four > input:nth-of-type(5):checked ~ a {
+  -webkit-transform: translate(-3968px);
+          transform: translate(-3968px);
+}
+
+main > div.flash-sale > div.slider-four > input:nth-of-type(5):checked ~ div.flash-labels > div:nth-of-type(5) {
+  display: block;
+}
+
+main > div.flash-sale > div.slider-four > input:nth-of-type(6):checked ~ a {
+  -webkit-transform: translate(-4960px);
+          transform: translate(-4960px);
+}
+
+main > div.flash-sale > div.slider-four > input:nth-of-type(6):checked ~ div.flash-labels > div:nth-of-type(6) {
+  display: block;
+}
+
+main > div.flash-sale > div.slider-four > div.flash-labels {
+  position: absolute;
+  width: 70px;
+  height: 24px;
+  top: 24px;
+  right: 0;
+  overflow: hidden;
+}
+
+main > div.flash-sale > div.slider-four > div.flash-labels > div {
+  display: none;
+}
+
+main > div.flash-sale > div.slider-four > div.flash-labels label {
+  display: inline-block;
+  margin-left: -1px;
+  width: 24px;
+  height: 16px;
+  padding: 3px 5px;
+  border: 1px solid #e0e0e0;
+  text-align: center;
+  color: #b0b0b0;
+  font-size: 16px;
+  line-height: 16px;
+  cursor: pointer;
+}
+
+main > div.flash-sale > div.slider-four > div.flash-labels label.disabled {
+  color: #e0e0e0;
+  cursor: default;
+}
+
+main > div.flash-sale > div.slider-four > div.flash-labels label:not(.disabled):hover {
+  color: #ff6700;
+}
+
+main > div.flash-sale > div.slider-four > a {
+  display: inline-block;
+  vertical-align: top;
+  width: 234px;
+  height: 300px;
+  margin-right: 14px;
+  padding-top: 39px;
+  background-color: #fafafa;
+  border-top: 1px solid #e53935;
+  -webkit-transition: -webkit-transform 0.6s;
+  transition: -webkit-transform 0.6s;
+  transition: transform 0.6s;
+  transition: transform 0.6s, -webkit-transform 0.6s;
+  font-size: 16px;
+  text-align: center;
+}
+
+main > div.flash-sale > div.slider-four > a > img {
+  display: block;
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 22px;
+}
+
+main > div.flash-sale > div.slider-four > a > h3 {
+  font-size: 14px;
+  color: #212121;
+  font-weight: 400;
+  margin: 0 20px 3px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+main > div.flash-sale > div.slider-four > a > p.desc {
+  height: 18px;
+  margin: 0 20px 12px;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  color: #b0b0b0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+main > div.flash-sale > div.slider-four > a > p.price {
+  font-size: 14px;
+}
+
+main > div.flash-sale > div.slider-four > a > p.price > span {
+  color: #ff6709;
+}
+
+main > div.flash-sale > div.slider-four > a > p.price > del {
+  color: #b0b0b0;
+}
+
+main > div.flash-sale > div.slider-four > a:nth-of-type(1+5n) {
+  border-top-color: #ffac13;
+}
+
+main > div.flash-sale > div.slider-four > a:nth-of-type(2+5n) {
+  border-top-color: #83c44e;
+}
+
+main > div.flash-sale > div.slider-four > a:nth-of-type(3+5n) {
+  border-top-color: #2196f3;
+}
+
+main > div.flash-sale > div.slider-four > a:nth-of-type(4+5n) {
+  border-top-color: #e53935;
+}
+
+main > div.flash-sale > div.slider-four > a:nth-of-type(5+5n) {
+  border-top-color: #00c0a5;
 }
 /*# sourceMappingURL=style.css.map */

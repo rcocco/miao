@@ -20,6 +20,9 @@
 .icon-right-arrow::before {
   content: "\E623";
 }
+.icon-left-arrow::before {
+  content: "\E628";
+}
 
 body {
   margin: 0;
@@ -54,6 +57,14 @@ a {
 @mixin center-container{
   width: 1226px;
   margin: auto;
+}
+
+@mixin clearfix{
+  &:after{
+    display: block;
+    content: "";
+    clear:both;
+  }
 }
 
 a.bar {
@@ -171,6 +182,7 @@ header {
         > a {
           // text-decoration-line: none;
           color: rgb(176, 176, 176);
+          padding: 10px 0;
         }
       }
       &:nth-of-type(1) {
@@ -202,17 +214,25 @@ header {
       color: rgb(176, 176, 176);
       &:hover {
         background-color: white;
-        color: #ff6700;
+        > a{
+          color: #ff6700;
+        }
+      }
+      > a{
+        display: inline-block;
+        width: 120px;
+        height: 40px;
+        color: rgb(176, 176, 176);
+        > span {
+          font-size: 20px;
+          line-height: 20px;
+          margin-right: 4px;
+          vertical-align: -4px;
+          -webkit-text-stroke-width: 0.2px;
+        }
       }
       @include hover-menu($width: 316px, $height: 100px, $align: right);
       text-align: center;
-      > span {
-        font-size: 20px;
-        line-height: 20px;
-        margin-right: 4px;
-        vertical-align: -4px;
-        -webkit-text-stroke-width: 0.2px;
-      }
       > div {
         > span {
           font-size: 12px;
@@ -681,5 +701,182 @@ main {
   background-color: #f5f5f5;
   > div.flash-sale {
     @include center-container;
+    @include clearfix;
+    position: relative;
+    > h2 {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 200;
+      line-height: 58px;
+      color: #333;
+    }
+    >div.countdown {
+      width: 234px;
+      height: 300px;
+      float: left;
+      margin-right: 14px;
+      padding-top: 39px;
+      border-top: 1px solid #e53935;
+      background-color: rgb(241, 237, 237);
+      > p {
+        text-align: center;
+        margin: 0;
+        &:nth-of-type(1){
+          font-size: 21px;
+          color: #ef3a3b;
+          padding-top: 15px;
+        }
+        &:nth-of-type(2){
+          font-size: 15px;
+          color: rgba(0,0,0,.54);
+        }
+        &:nth-of-type(3){
+          margin-top: 28px;
+          .hour, .minute, .second {
+            display: inline-block;
+            text-align: center;
+            width: 46px;
+            height: 46px;
+            background-color: #605751;
+            color: #fff;
+            font-size: 24px;
+            line-height: 46px;
+          }
+           .colon {
+            display: inline-block;
+            text-align:center;
+            width: 15px;
+            height: 46px;
+            color: #605751;
+            font-size: 28px;
+            line-height: 46px;
+          }
+        }
+      }
+      > img {
+        display: block;
+        margin: 25px auto;
+      }
+    }
+    >div.slider-four {
+      width: 978px;
+      height: 340px;
+      float: left;
+      overflow: hidden;
+      // padding-top: 39px;
+      // border-top: 1px solid #e53935;
+      background-color: rgb(241, 237, 237);
+      font-size: 0;
+      white-space: nowrap;
+      >input {
+        display: none;
+        @for $i from 1 through 6 {
+          &:nth-of-type(#{$i}):checked {
+            ~ a{
+              transform: translate(-992px * ($i - 1));
+            }
+            ~ div.flash-labels {
+              > div:nth-of-type(#{$i}){
+                display: block;
+              }
+            }
+          }
+        }
+      }
+      // 选中后，改变label位置，改变label中的字符，平移下面的条
+      > div.flash-labels{
+        position: absolute;
+        width: 70px;
+        height: 24px;
+        top: 24px;
+        right: 0;
+        overflow: hidden;
+        > div {
+          display: none;
+        }
+        label {
+          display: inline-block;
+          margin-left: -1px;
+          width: 24px;
+          height: 16px;
+          // background-color: black;
+          padding: 3px 5px;
+          border: 1px solid #e0e0e0;
+          text-align: center;
+          color: #b0b0b0;
+          font-size: 16px;
+          line-height: 16px;
+          cursor: pointer;
+          &.disabled {
+            color: #e0e0e0;
+            cursor: default;
+          }
+          &:not(.disabled):hover{
+            color: #ff6700;
+          }
+        }
+      }
+      > a {
+        display: inline-block;
+        vertical-align: top;
+        width: 234px;
+        height: 300px;
+        margin-right: 14px;
+        padding-top: 39px;
+        background-color: rgb(250,250,250);
+        border-top: 1px solid #e53935; // 颜色不一样
+        transition: transform 0.6s;
+        font-size: 16px;
+        text-align: center;
+        > img {
+          display: block;
+          width: 160px;
+          height: 160px;
+          margin: 0 auto 22px;
+        }
+        > h3 {
+          font-size: 14px;
+          color: #212121;
+          font-weight: 400;
+          margin: 0 20px 3px;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+        }
+        > p.desc {
+          height: 18px;
+          margin: 0 20px 12px;
+          font-size: 12px;
+          text-overflow: ellipsis;
+          color: #b0b0b0;
+          overflow: hidden;
+          white-space: nowrap;
+        }
+        > p.price {
+          font-size: 14px;
+          > span {
+            color: #ff6709;
+          }
+          >del {
+            color: #b0b0b0;
+          }
+        }
+        &:nth-of-type(1+5n){
+          border-top-color: rgb(255,172,19);
+        }
+        &:nth-of-type(2+5n){
+          border-top-color: rgb(131,196,78);
+        }
+        &:nth-of-type(3+5n){
+          border-top-color: rgb(33,150,243);
+        }
+        &:nth-of-type(4+5n){
+          border-top-color: rgb(229,57,53);
+        }
+        &:nth-of-type(5+5n){
+          border-top-color: rgb(0,192,165);
+        }
+      }
+    }
   }
 }
