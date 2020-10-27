@@ -63,11 +63,19 @@ a.bar {
   background: url(../images/bar.jpg) center/cover;
 }
 
-@mixin hover-menu($width, $height, $align: center) {
+/*
+图层(z-index)
+轮播图图片 600
+轮播图菜单、轮播图左右按钮、轮播图右下角按钮 700
+轮播图子菜单 800
+header2下滑菜单 900
+下载app    1000
+*/
+@mixin hover-menu($width, $height, $align: center, $index: 1000) {
   position: relative;
   > div {
     position: absolute;
-    z-index: 1000;
+    z-index: $index;
     width: $width;
     height: 0px;
     background-color: white;
@@ -154,7 +162,7 @@ header {
             @include triangle(up, 8px, white);
             &:before {
               position: absolute;
-              z-index: 1000;
+              z-index: 1000; // 下载app上面的小三角
               left: calc(50% - 8px);
               bottom: 0;
             }
@@ -302,7 +310,7 @@ div.header2 {
       }
       > div {
         position: absolute;
-        z-index: 1000;
+        z-index: 900; // header2下滑菜单
         width: 100%;
         min-width: 1226px;
         height: 0px;
@@ -358,7 +366,7 @@ div.header2 {
                   position: absolute;
                   left: 0;
                   top: 35px;
-                  z-index: 500;
+                  z-index: 900; // header2下滑菜单竖线
                   width: 1px;
                   height: 100px;
                   background-color: #e0e0e0;
@@ -427,13 +435,13 @@ div.slider-menu {
         &:nth-of-type(#{$i}):checked {
           ~ div:nth-of-type(#{$i}){
             > a {
-              z-index: 800;
+              z-index: 600; // 轮播图图片
               > img{
                 opacity: 1;
               }
             }
             > label {
-              z-index: 800;
+              z-index: 700; // 轮播图当前左右按钮
             }
           }
           ~ div.slider-bullet {
@@ -460,7 +468,7 @@ div.slider-menu {
         }
         >label{
           position: absolute;
-          z-index: 800;
+          //z-index: 0; // 轮播图左右按钮
           top: 50%;
           margin-top: -35px;
           width: 41px;
@@ -486,7 +494,7 @@ div.slider-menu {
         position: absolute;
         right: 30px;
         bottom: 25px;
-        z-index: 800;
+        z-index: 700; // 轮播图右下角按钮
         display: flex;
         > label {
           width: 6px;
@@ -511,7 +519,7 @@ div.slider-menu {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 900;
+    z-index: 700; // 轮播图菜单
     background-color: rgba(105, 101, 101, 0.6);
     display: flex;
     flex-direction: column;
@@ -565,7 +573,7 @@ div.slider-menu {
         background-color: white;
         position: absolute;
         top: 0;
-        z-index: 1000;
+        z-index: 800; // 轮播图子菜单
         left: 100%;
         display: none;
         // display: flex;
