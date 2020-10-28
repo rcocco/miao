@@ -414,8 +414,8 @@ div.header2 > div > ul > div > div {
   width: 100%;
   height: 229px;
   visibility: hidden;
-  -webkit-transition: visibility 999s 999s;
-  transition: visibility 999s 999s;
+  -webkit-transition: visibility 0s 9999s;
+  transition: visibility 0s 9999s;
   position: absolute;
 }
 
@@ -1267,7 +1267,55 @@ main > div.phone > div > a > p.price > del {
 }
 
 main > div.home-electronics {
+  position: relative;
   font-size: 0;
+}
+
+main > div.home-electronics > ul {
+  position: absolute;
+  top: 16px;
+  right: 0;
+}
+
+main > div.home-electronics > ul:hover > li > span {
+  -webkit-transition: none;
+  transition: none;
+  color: black;
+  border-bottom-color: rgba(0, 0, 0, 0);
+}
+
+main > div.home-electronics > ul > li {
+  display: inline-block;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 0 15px;
+}
+
+main > div.home-electronics > ul > li > span {
+  display: inline-block;
+  border-bottom: 2px solid rgba(0, 0, 0, 0);
+  -webkit-transition: all 0s 9999s;
+  transition: all 0s 9999s;
+}
+
+main > div.home-electronics > ul > li .default_select {
+  color: #ff6700;
+  border-bottom-color: #ff6700;
+}
+
+main > div.home-electronics > ul > li:hover > span {
+  color: #ff6700;
+  border-bottom-color: #ff6700;
+  -webkit-transition: none;
+  transition: none;
+}
+
+main > div.home-electronics > ul > li:first-of-type {
+  padding-left: 0;
+}
+
+main > div.home-electronics > ul > li:last-of-type {
+  padding-right: 0;
 }
 
 main > div.home-electronics > div {
@@ -1304,7 +1352,12 @@ main > div.home-electronics > div:nth-of-type(1) > a > img:nth-of-type(1) {
   margin-bottom: 14px;
 }
 
+main > div.home-electronics > div:nth-of-type(2) {
+  position: relative;
+}
+
 main > div.home-electronics > div:nth-of-type(2) > div {
+  position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1383,10 +1436,19 @@ main > div.home-electronics > div:nth-of-type(2) > div > a > p.price > del {
 main > div.home-electronics > div:nth-of-type(2) > div > div {
   width: 234px;
   height: 300px;
-  background-color: pink;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-main > div.home-electronics > div:nth-of-type(2) > div > div > a {
+main > div.home-electronics > div:nth-of-type(2) > div > div > a:nth-of-type(1) {
   display: inline-block;
   vertical-align: top;
   width: 234px;
@@ -1399,14 +1461,14 @@ main > div.home-electronics > div:nth-of-type(2) > div > div > a {
   transition: all .2s linear;
 }
 
-main > div.home-electronics > div:nth-of-type(2) > div > div > a:hover {
+main > div.home-electronics > div:nth-of-type(2) > div > div > a:nth-of-type(1):hover {
   -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
           box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
   -webkit-transform: translate3d(0, -2px, 0);
           transform: translate3d(0, -2px, 0);
 }
 
-main > div.home-electronics > div:nth-of-type(2) > div > div > a > img {
+main > div.home-electronics > div:nth-of-type(2) > div > div > a:nth-of-type(1) > img {
   float: right;
   vertical-align: top;
   width: 80px;
@@ -1415,7 +1477,7 @@ main > div.home-electronics > div:nth-of-type(2) > div > div > a > img {
   margin-top: -8px;
 }
 
-main > div.home-electronics > div:nth-of-type(2) > div > div > a > h3 {
+main > div.home-electronics > div:nth-of-type(2) > div > div > a:nth-of-type(1) > h3 {
   font-size: 14px;
   line-height: 21px;
   color: #333;
@@ -1423,10 +1485,56 @@ main > div.home-electronics > div:nth-of-type(2) > div > div > a > h3 {
   margin: 0 110px 5px 30px;
 }
 
-main > div.home-electronics > div:nth-of-type(2) > div > div > a > p.price {
+main > div.home-electronics > div:nth-of-type(2) > div > div > a:nth-of-type(1) > p.price {
   font-size: 14px;
   margin: 0 110px 0 30px;
   color: #ff6709;
+}
+
+main > div.home-electronics > div:nth-of-type(2) > div > div > a:nth-of-type(2) {
+  display: inline-block;
+  vertical-align: top;
+  width: 234px;
+  height: 93px;
+  padding-top: 50px;
+  background-color: white;
+  font-size: 16px;
+  text-align: left;
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear;
+}
+
+main > div.home-electronics > div:nth-of-type(2) > div > div > a:nth-of-type(2):hover {
+  -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  -webkit-transform: translate3d(0, -2px, 0);
+          transform: translate3d(0, -2px, 0);
+}
+
+main > div.home-electronics > div:nth-of-type(2) > div > div > a:nth-of-type(2) > span {
+  float: right;
+  vertical-align: top;
+  width: 48px;
+  height: 48px;
+  font-size: 48px;
+  line-height: 48px;
+  margin-right: 35px;
+  margin-top: -2px;
+  color: #ff6700;
+}
+
+main > div.home-electronics > div:nth-of-type(2) > div > div > a:nth-of-type(2) > h3 {
+  font-size: 18px;
+  line-height: 27px;
+  color: #333;
+  font-weight: 400;
+  margin: 0 110px 0 30px;
+}
+
+main > div.home-electronics > div:nth-of-type(2) > div > div > a:nth-of-type(2) > p {
+  font-size: 12px;
+  color: #757575;
+  margin: 0 110px 0 30px;
 }
 
 main > a {
