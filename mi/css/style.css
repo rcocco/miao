@@ -31,7 +31,6 @@
 
 body {
   margin: 0;
-  overflow-y: scroll;
   font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
 }
 
@@ -319,7 +318,7 @@ div.header2 > div > ul > li:hover > a {
   color: #ff6700;
 }
 
-div.header2 > div > ul > li:nth-of-type(-n+7):hover ~ div {
+div.header2 > div > ul > li:nth-of-type(-n + 7):hover ~ div {
   height: 229px;
   -webkit-transition-delay: 0s;
           transition-delay: 0s;
@@ -455,7 +454,7 @@ div.header2 > div > ul > div > div > ul > li > a > p:nth-of-type(2) {
   color: #ff6700;
 }
 
-div.header2 > div > ul > div > div > ul > li:nth-of-type(n+2)::before {
+div.header2 > div > ul > div > div > ul > li:nth-of-type(n + 2)::before {
   content: "";
   position: absolute;
   left: 0;
@@ -472,7 +471,8 @@ div.header2 > div > form {
   height: 50px;
 }
 
-div.header2 > div > form:hover > input, div.header2 > div > form:hover > button {
+div.header2 > div > form:hover > input,
+div.header2 > div > form:hover > button {
   border-color: #b0b0b0;
 }
 
@@ -851,7 +851,7 @@ div.poster > ul > li > a > span {
   line-height: 18px;
 }
 
-div.poster > a:nth-of-type(n+2) {
+div.poster > a:nth-of-type(n + 2) {
   margin-left: 15px;
 }
 
@@ -925,7 +925,9 @@ main > div.flash-sale > div.countdown > p:nth-of-type(3) {
   margin-top: 28px;
 }
 
-main > div.flash-sale > div.countdown > p:nth-of-type(3) .hour, main > div.flash-sale > div.countdown > p:nth-of-type(3) .minute, main > div.flash-sale > div.countdown > p:nth-of-type(3) .second {
+main > div.flash-sale > div.countdown > p:nth-of-type(3) .hour,
+main > div.flash-sale > div.countdown > p:nth-of-type(3) .minute,
+main > div.flash-sale > div.countdown > p:nth-of-type(3) .second {
   display: inline-block;
   text-align: center;
   width: 46px;
@@ -1111,23 +1113,23 @@ main > div.flash-sale > div.slider-four > a > p.price > del {
   color: #b0b0b0;
 }
 
-main > div.flash-sale > div.slider-four > a:nth-of-type(5n+1) {
+main > div.flash-sale > div.slider-four > a:nth-of-type(5n + 1) {
   border-top-color: #ffac13;
 }
 
-main > div.flash-sale > div.slider-four > a:nth-of-type(5n+2) {
+main > div.flash-sale > div.slider-four > a:nth-of-type(5n + 2) {
   border-top-color: #83c44e;
 }
 
-main > div.flash-sale > div.slider-four > a:nth-of-type(5n+3) {
+main > div.flash-sale > div.slider-four > a:nth-of-type(5n + 3) {
   border-top-color: #2196f3;
 }
 
-main > div.flash-sale > div.slider-four > a:nth-of-type(5n+4) {
+main > div.flash-sale > div.slider-four > a:nth-of-type(5n + 4) {
   border-top-color: #e53935;
 }
 
-main > div.flash-sale > div.slider-four > a:nth-of-type(5n+5) {
+main > div.flash-sale > div.slider-four > a:nth-of-type(5n + 5) {
   border-top-color: #00c0a5;
 }
 
@@ -1173,8 +1175,8 @@ main > div.phone > a:nth-of-type(2) {
   width: 234px;
   height: 614px;
   margin-right: 14px;
-  -webkit-transition: all .2s linear;
-  transition: all .2s linear;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
 }
 
 main > div.phone > a:nth-of-type(2):hover {
@@ -1214,8 +1216,8 @@ main > div.phone > div > a {
   background-color: white;
   font-size: 16px;
   text-align: center;
-  -webkit-transition: all .2s linear;
-  transition: all .2s linear;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
 }
 
 main > div.phone > div > a:hover {
@@ -1266,98 +1268,51 @@ main > div.phone > div > a > p.price > del {
   color: #b0b0b0;
 }
 
-main > div.home-electronics {
+main > div.home-electronics, main > div.intelligence, main > div.ancillary-product {
   position: relative;
-  font-size: 0;
 }
 
-main > div.home-electronics > ul {
-  position: absolute;
-  top: 16px;
-  right: 0;
-}
-
-main > div.home-electronics > ul:hover > li > span {
-  -webkit-transition: none;
-  transition: none;
-  color: black;
-  border-bottom-color: rgba(0, 0, 0, 0);
-}
-
-main > div.home-electronics > ul > li {
-  display: inline-block;
-  font-size: 16px;
-  line-height: 1.5;
-  padding: 0 15px;
-}
-
-main > div.home-electronics > ul > li > span {
-  display: inline-block;
-  border-bottom: 2px solid rgba(0, 0, 0, 0);
-  -webkit-transition: all 0s 9999s;
-  transition: all 0s 9999s;
-}
-
-main > div.home-electronics > ul > li .default_select {
-  color: #ff6700;
-  border-bottom-color: #ff6700;
-}
-
-main > div.home-electronics > ul > li:hover > span {
-  color: #ff6700;
-  border-bottom-color: #ff6700;
-  -webkit-transition: none;
-  transition: none;
-}
-
-main > div.home-electronics > ul > li:first-of-type {
-  padding-left: 0;
-}
-
-main > div.home-electronics > ul > li:last-of-type {
-  padding-right: 0;
-}
-
-main > div.home-electronics > div {
-  display: inline-block;
-  vertical-align: top;
-}
-
-main > div.home-electronics > div:nth-of-type(1) {
+main > div.home-electronics > div, main > div.intelligence > div, main > div.ancillary-product > div {
   width: 234px;
   height: 614px;
   margin-right: 14px;
+  vertical-align: top;
 }
 
-main > div.home-electronics > div:nth-of-type(1) > a {
+main > div.home-electronics > div > a, main > div.intelligence > div > a, main > div.ancillary-product > div > a {
   display: block;
-  -webkit-transition: all .2s linear;
-  transition: all .2s linear;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
 }
 
-main > div.home-electronics > div:nth-of-type(1) > a:hover {
+main > div.home-electronics > div > a:hover, main > div.intelligence > div > a:hover, main > div.ancillary-product > div > a:hover {
   -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
           box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
   -webkit-transform: translate3d(0, -2px, 0);
           transform: translate3d(0, -2px, 0);
 }
 
-main > div.home-electronics > div:nth-of-type(1) > a > img {
+main > div.home-electronics > div > a > img, main > div.intelligence > div > a > img, main > div.ancillary-product > div > a > img {
   width: 234px;
   height: 300px;
   vertical-align: top;
 }
 
-main > div.home-electronics > div:nth-of-type(1) > a > img:nth-of-type(1) {
+main > div.home-electronics > div > a > img:nth-of-type(1), main > div.intelligence > div > a > img:nth-of-type(1), main > div.ancillary-product > div > a > img:nth-of-type(1) {
   margin-bottom: 14px;
 }
 
-main > div.home-electronics > div:nth-of-type(2) {
-  position: relative;
+main > div.home-electronics > ul, main > div.intelligence > ul, main > div.ancillary-product > ul {
+  font-size: 0;
+  position: absolute;
+  top: 16px;
+  right: 0;
 }
 
-main > div.home-electronics > div:nth-of-type(2) > div {
+main > div.home-electronics > ul > li > div, main > div.intelligence > ul > li > div, main > div.ancillary-product > ul > li > div {
   position: absolute;
+  right: 0;
+  top: 42px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1372,7 +1327,7 @@ main > div.home-electronics > div:nth-of-type(2) > div {
       align-content: space-between;
 }
 
-main > div.home-electronics > div:nth-of-type(2) > div > a {
+main > div.home-electronics > ul > li > div > a, main > div.intelligence > ul > li > div > a, main > div.ancillary-product > ul > li > div > a {
   display: inline-block;
   vertical-align: top;
   width: 234px;
@@ -1381,25 +1336,25 @@ main > div.home-electronics > div:nth-of-type(2) > div > a {
   background-color: white;
   font-size: 16px;
   text-align: center;
-  -webkit-transition: all .2s linear;
-  transition: all .2s linear;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
 }
 
-main > div.home-electronics > div:nth-of-type(2) > div > a:hover {
+main > div.home-electronics > ul > li > div > a:hover, main > div.intelligence > ul > li > div > a:hover, main > div.ancillary-product > ul > li > div > a:hover {
   -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
           box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
   -webkit-transform: translate3d(0, -2px, 0);
           transform: translate3d(0, -2px, 0);
 }
 
-main > div.home-electronics > div:nth-of-type(2) > div > a > img {
+main > div.home-electronics > ul > li > div > a > img, main > div.intelligence > ul > li > div > a > img, main > div.ancillary-product > ul > li > div > a > img {
   display: block;
   width: 160px;
   height: 160px;
   margin: 0 auto 18px;
 }
 
-main > div.home-electronics > div:nth-of-type(2) > div > a > h3 {
+main > div.home-electronics > ul > li > div > a > h3, main > div.intelligence > ul > li > div > a > h3, main > div.ancillary-product > ul > li > div > a > h3 {
   font-size: 14px;
   line-height: 21px;
   color: #212121;
@@ -1410,7 +1365,7 @@ main > div.home-electronics > div:nth-of-type(2) > div > a > h3 {
   white-space: nowrap;
 }
 
-main > div.home-electronics > div:nth-of-type(2) > div > a > p.desc {
+main > div.home-electronics > ul > li > div > a > p.desc, main > div.intelligence > ul > li > div > a > p.desc, main > div.ancillary-product > ul > li > div > a > p.desc {
   height: 18px;
   margin: 0 10px 10px;
   font-size: 12px;
@@ -1420,20 +1375,20 @@ main > div.home-electronics > div:nth-of-type(2) > div > a > p.desc {
   white-space: nowrap;
 }
 
-main > div.home-electronics > div:nth-of-type(2) > div > a > p.price {
+main > div.home-electronics > ul > li > div > a > p.price, main > div.intelligence > ul > li > div > a > p.price, main > div.ancillary-product > ul > li > div > a > p.price {
   font-size: 14px;
   margin: 0 10px 14px;
 }
 
-main > div.home-electronics > div:nth-of-type(2) > div > a > p.price > span {
+main > div.home-electronics > ul > li > div > a > p.price > span, main > div.intelligence > ul > li > div > a > p.price > span, main > div.ancillary-product > ul > li > div > a > p.price > span {
   color: #ff6709;
 }
 
-main > div.home-electronics > div:nth-of-type(2) > div > a > p.price > del {
+main > div.home-electronics > ul > li > div > a > p.price > del, main > div.intelligence > ul > li > div > a > p.price > del, main > div.ancillary-product > ul > li > div > a > p.price > del {
   color: #b0b0b0;
 }
 
-main > div.home-electronics > div:nth-of-type(2) > div > div {
+main > div.home-electronics > ul > li > div > div, main > div.intelligence > ul > li > div > div, main > div.ancillary-product > ul > li > div > div {
   width: 234px;
   height: 300px;
   display: -webkit-box;
@@ -1448,7 +1403,7 @@ main > div.home-electronics > div:nth-of-type(2) > div > div {
           justify-content: space-between;
 }
 
-main > div.home-electronics > div:nth-of-type(2) > div > div > a:nth-of-type(1) {
+main > div.home-electronics > ul > li > div > div > a:not(.more), main > div.intelligence > ul > li > div > div > a:not(.more), main > div.ancillary-product > ul > li > div > div > a:not(.more) {
   display: inline-block;
   vertical-align: top;
   width: 234px;
@@ -1457,18 +1412,18 @@ main > div.home-electronics > div:nth-of-type(2) > div > div > a:nth-of-type(1) 
   background-color: white;
   font-size: 16px;
   text-align: left;
-  -webkit-transition: all .2s linear;
-  transition: all .2s linear;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
 }
 
-main > div.home-electronics > div:nth-of-type(2) > div > div > a:nth-of-type(1):hover {
+main > div.home-electronics > ul > li > div > div > a:not(.more):hover, main > div.intelligence > ul > li > div > div > a:not(.more):hover, main > div.ancillary-product > ul > li > div > div > a:not(.more):hover {
   -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
           box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
   -webkit-transform: translate3d(0, -2px, 0);
           transform: translate3d(0, -2px, 0);
 }
 
-main > div.home-electronics > div:nth-of-type(2) > div > div > a:nth-of-type(1) > img {
+main > div.home-electronics > ul > li > div > div > a:not(.more) > img, main > div.intelligence > ul > li > div > div > a:not(.more) > img, main > div.ancillary-product > ul > li > div > div > a:not(.more) > img {
   float: right;
   vertical-align: top;
   width: 80px;
@@ -1477,7 +1432,7 @@ main > div.home-electronics > div:nth-of-type(2) > div > div > a:nth-of-type(1) 
   margin-top: -8px;
 }
 
-main > div.home-electronics > div:nth-of-type(2) > div > div > a:nth-of-type(1) > h3 {
+main > div.home-electronics > ul > li > div > div > a:not(.more) > h3, main > div.intelligence > ul > li > div > div > a:not(.more) > h3, main > div.ancillary-product > ul > li > div > div > a:not(.more) > h3 {
   font-size: 14px;
   line-height: 21px;
   color: #333;
@@ -1485,13 +1440,13 @@ main > div.home-electronics > div:nth-of-type(2) > div > div > a:nth-of-type(1) 
   margin: 0 110px 5px 30px;
 }
 
-main > div.home-electronics > div:nth-of-type(2) > div > div > a:nth-of-type(1) > p.price {
+main > div.home-electronics > ul > li > div > div > a:not(.more) > p.price, main > div.intelligence > ul > li > div > div > a:not(.more) > p.price, main > div.ancillary-product > ul > li > div > div > a:not(.more) > p.price {
   font-size: 14px;
   margin: 0 110px 0 30px;
   color: #ff6709;
 }
 
-main > div.home-electronics > div:nth-of-type(2) > div > div > a:nth-of-type(2) {
+main > div.home-electronics > ul > li > div > div > a.more, main > div.intelligence > ul > li > div > div > a.more, main > div.ancillary-product > ul > li > div > div > a.more {
   display: inline-block;
   vertical-align: top;
   width: 234px;
@@ -1500,18 +1455,18 @@ main > div.home-electronics > div:nth-of-type(2) > div > div > a:nth-of-type(2) 
   background-color: white;
   font-size: 16px;
   text-align: left;
-  -webkit-transition: all .2s linear;
-  transition: all .2s linear;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
 }
 
-main > div.home-electronics > div:nth-of-type(2) > div > div > a:nth-of-type(2):hover {
+main > div.home-electronics > ul > li > div > div > a.more:hover, main > div.intelligence > ul > li > div > div > a.more:hover, main > div.ancillary-product > ul > li > div > div > a.more:hover {
   -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
           box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
   -webkit-transform: translate3d(0, -2px, 0);
           transform: translate3d(0, -2px, 0);
 }
 
-main > div.home-electronics > div:nth-of-type(2) > div > div > a:nth-of-type(2) > span {
+main > div.home-electronics > ul > li > div > div > a.more > span, main > div.intelligence > ul > li > div > div > a.more > span, main > div.ancillary-product > ul > li > div > div > a.more > span {
   float: right;
   vertical-align: top;
   width: 48px;
@@ -1523,7 +1478,7 @@ main > div.home-electronics > div:nth-of-type(2) > div > div > a:nth-of-type(2) 
   color: #ff6700;
 }
 
-main > div.home-electronics > div:nth-of-type(2) > div > div > a:nth-of-type(2) > h3 {
+main > div.home-electronics > ul > li > div > div > a.more > h3, main > div.intelligence > ul > li > div > div > a.more > h3, main > div.ancillary-product > ul > li > div > div > a.more > h3 {
   font-size: 18px;
   line-height: 27px;
   color: #333;
@@ -1531,10 +1486,74 @@ main > div.home-electronics > div:nth-of-type(2) > div > div > a:nth-of-type(2) 
   margin: 0 110px 0 30px;
 }
 
-main > div.home-electronics > div:nth-of-type(2) > div > div > a:nth-of-type(2) > p {
+main > div.home-electronics > ul > li > div > div > a.more > p, main > div.intelligence > ul > li > div > div > a.more > p, main > div.ancillary-product > ul > li > div > div > a.more > p {
   font-size: 12px;
   color: #757575;
   margin: 0 110px 0 30px;
+}
+
+main > div.home-electronics > ul > li, main > div.intelligence > ul > li, main > div.ancillary-product > ul > li {
+  display: inline-block;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 0 15px;
+}
+
+main > div.home-electronics > ul > li:first-of-type, main > div.intelligence > ul > li:first-of-type, main > div.ancillary-product > ul > li:first-of-type {
+  padding-left: 0;
+}
+
+main > div.home-electronics > ul > li:last-of-type, main > div.intelligence > ul > li:last-of-type, main > div.ancillary-product > ul > li:last-of-type {
+  padding-right: 0;
+}
+
+main > div.home-electronics > ul > li > span, main > div.intelligence > ul > li > span, main > div.ancillary-product > ul > li > span {
+  display: inline-block;
+  color: black;
+  border-bottom: 2px solid rgba(0, 0, 0, 0);
+  -webkit-transition: all 0s 9999s;
+  transition: all 0s 9999s;
+}
+
+main > div.home-electronics > ul > li > div, main > div.intelligence > ul > li > div, main > div.ancillary-product > ul > li > div {
+  visibility: hidden;
+  -webkit-transition: all 0s 9999s;
+  transition: all 0s 9999s;
+}
+
+main > div.home-electronics > ul > li:first-of-type > span, main > div.intelligence > ul > li:first-of-type > span, main > div.ancillary-product > ul > li:first-of-type > span {
+  color: #ff6700;
+  border-bottom-color: #ff6700;
+}
+
+main > div.home-electronics > ul > li:first-of-type > div, main > div.intelligence > ul > li:first-of-type > div, main > div.ancillary-product > ul > li:first-of-type > div {
+  visibility: visible;
+}
+
+main > div.home-electronics > ul:hover > li > span, main > div.intelligence > ul:hover > li > span, main > div.ancillary-product > ul:hover > li > span {
+  -webkit-transition: none;
+  transition: none;
+  color: black;
+  border-bottom-color: rgba(0, 0, 0, 0);
+}
+
+main > div.home-electronics > ul:hover > li > div, main > div.intelligence > ul:hover > li > div, main > div.ancillary-product > ul:hover > li > div {
+  -webkit-transition: none;
+  transition: none;
+  visibility: hidden;
+}
+
+main > div.home-electronics > ul > li:hover > span, main > div.intelligence > ul > li:hover > span, main > div.ancillary-product > ul > li:hover > span {
+  color: #ff6700;
+  border-bottom-color: #ff6700;
+  -webkit-transition: none;
+  transition: none;
+}
+
+main > div.home-electronics > ul > li:hover > div, main > div.intelligence > ul > li:hover > div, main > div.ancillary-product > ul > li:hover > div {
+  -webkit-transition: none;
+  transition: none;
+  visibility: visible;
 }
 
 main > a {

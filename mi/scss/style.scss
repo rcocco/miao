@@ -30,7 +30,6 @@
 
 body {
   margin: 0;
-  overflow-y: scroll;
   font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC",
     "WenQuanYi Micro Hei", sans-serif;
 }
@@ -58,16 +57,16 @@ a {
   }
 }
 
-@mixin center-container{
+@mixin center-container {
   width: 1226px;
   margin: auto;
 }
 
-@mixin clearfix{
-  &:after{
+@mixin clearfix {
+  &:after {
     display: block;
     content: "";
-    clear:both;
+    clear: both;
   }
 }
 
@@ -132,15 +131,15 @@ header2下滑菜单 900
   }
 }
 
-@mixin hover3d{
-  transition: all .2s linear;
+@mixin hover3d {
+  transition: all 0.2s linear;
   &:hover {
-    box-shadow: 0 15px 30px rgba(0,0,0,.1);
-    transform: translate3d(0,-2px,0);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    transform: translate3d(0, -2px, 0);
   }
 }
 
-@mixin product{
+@mixin product {
   display: inline-block;
   vertical-align: top;
   width: 234px;
@@ -177,17 +176,17 @@ header2下滑菜单 900
   }
   > p.price {
     font-size: 14px;
-    margin:0 10px 14px;
+    margin: 0 10px 14px;
     > span {
       color: #ff6709;
     }
-    >del {
+    > del {
       color: #b0b0b0;
     }
   }
 }
 
-@mixin product-less{
+@mixin product-less {
   display: inline-block;
   vertical-align: top;
   width: 234px;
@@ -198,7 +197,7 @@ header2下滑菜单 900
   text-align: left;
   @include hover3d;
   > img {
-    float:right;
+    float: right;
     vertical-align: top;
     width: 80px;
     height: 80px;
@@ -214,7 +213,7 @@ header2下滑菜单 900
   }
   > p.price {
     font-size: 14px;
-    margin:0 110px 0 30px;
+    margin: 0 110px 0 30px;
     color: #ff6709;
   }
 }
@@ -230,7 +229,7 @@ header2下滑菜单 900
   text-align: left;
   @include hover3d;
   > span {
-    float:right;
+    float: right;
     vertical-align: top;
     width: 48px;
     height: 48px;
@@ -251,6 +250,25 @@ header2下滑菜单 900
     font-size: 12px;
     color: #757575;
     margin: 0 110px 0 30px;
+  }
+}
+
+@mixin two-img-vertical {
+  width: 234px;
+  height: 614px;
+  margin-right: 14px;
+  vertical-align: top;
+  > a {
+    display: block;
+    @include hover3d;
+    > img {
+      width: 234px;
+      height: 300px;
+      vertical-align: top;
+      &:nth-of-type(1) {
+        margin-bottom: 14px;
+      }
+    }
   }
 }
 
@@ -312,7 +330,7 @@ header {
         }
       }
       &:nth-of-type(1) {
-        float:left;
+        float: left;
       }
       &:nth-of-type(2) {
         float: right;
@@ -340,11 +358,11 @@ header {
       color: rgb(176, 176, 176);
       &:hover {
         background-color: white;
-        > a{
+        > a {
           color: #ff6700;
         }
       }
-      > a{
+      > a {
         display: inline-block;
         width: 120px;
         height: 40px;
@@ -421,7 +439,7 @@ div.header2 {
       margin-right: auto;
       margin-bottom: 4px;
       > li {
-        > a{
+        > a {
           // display: inline-block;
           // text-decoration: none;
           color: black;
@@ -432,7 +450,7 @@ div.header2 {
             color: #ff6700;
           }
         }
-        &:nth-of-type(-n+7){
+        &:nth-of-type(-n + 7) {
           &:hover {
             ~ div {
               height: 229px;
@@ -440,13 +458,13 @@ div.header2 {
             }
           }
         }
-        @for $i from 1 through 7{
+        @for $i from 1 through 7 {
           &:nth-of-type(#{$i}) {
             &:hover {
               ~ div {
                 > div {
                   transition: none;
-                  &:nth-of-type(#{$i}){
+                  &:nth-of-type(#{$i}) {
                     // display: block;
                     visibility: visible;
                   }
@@ -465,7 +483,7 @@ div.header2 {
         left: 0;
         top: 100%;
         background-color: white;
-        box-shadow: 0 1px 5px rgba(0,0,0,.18);
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.18);
         transition: height 0.3s 0.1s;
         overflow: hidden;
         &:hover {
@@ -504,12 +522,12 @@ div.header2 {
                   line-height: 20px;
                   margin: 0;
                   color: black;
-                  &:nth-of-type(2){
+                  &:nth-of-type(2) {
                     color: #ff6700;
                   }
                 }
               }
-              &:nth-of-type(n+2){
+              &:nth-of-type(n + 2) {
                 &::before {
                   content: "";
                   position: absolute;
@@ -531,7 +549,8 @@ div.header2 {
       width: 296px;
       height: 50px;
       &:hover {
-        > input, >button {
+        > input,
+        > button {
           border-color: #b0b0b0;
         }
       }
@@ -541,7 +560,7 @@ div.header2 {
         width: 223px;
         height: 48px;
         padding: 0 10px;
-        border: 1px solid rgb(224,224,224);
+        border: 1px solid rgb(224, 224, 224);
         &:focus {
           border-color: #ff6700;
           + button {
@@ -555,13 +574,13 @@ div.header2 {
         width: 52px;
         height: 50px;
         padding: 1px 6px;
-        border: 1px solid rgb(224,224,224);
+        border: 1px solid rgb(224, 224, 224);
         background-color: white;
         font-size: 24px;
         line-height: 24px;
         &:hover {
-          background-color: rgb(255,103,0);
-          border-color: rgb(255,103,0);
+          background-color: rgb(255, 103, 0);
+          border-color: rgb(255, 103, 0);
           color: white;
           transition: 0.2s;
         }
@@ -582,10 +601,10 @@ div.slider-menu {
       display: none;
       @for $i from 1 through 5 {
         &:nth-of-type(#{$i}):checked {
-          ~ div:nth-of-type(#{$i}){
+          ~ div:nth-of-type(#{$i}) {
             > a {
               z-index: 600; // 轮播图图片
-              > img{
+              > img {
                 opacity: 1;
               }
             }
@@ -594,16 +613,16 @@ div.slider-menu {
             }
           }
           ~ div.slider-bullet {
-            >label:nth-of-type(#{$i}){
-              background-color: hsla(0,0%,100%,0.4);
+            > label:nth-of-type(#{$i}) {
+              background-color: hsla(0, 0%, 100%, 0.4);
             }
           }
         }
       }
     }
-    >div {
-      &:not(.slider-bullet){
-        >a {
+    > div {
+      &:not(.slider-bullet) {
+        > a {
           display: block;
           width: 1226px;
           height: 460px;
@@ -615,7 +634,7 @@ div.slider-menu {
             transition: opacity 0.8s;
           }
         }
-        >label{
+        > label {
           position: absolute;
           //z-index: 0; // 轮播图左右按钮
           top: 50%;
@@ -623,16 +642,16 @@ div.slider-menu {
           width: 41px;
           height: 69px;
           cursor: pointer;
-          &:nth-of-type(1){
+          &:nth-of-type(1) {
             left: 234px;
-            background: url(../images/icon-slides.png) no-repeat -84px 50% rgba(0,0,0,0);
+            background: url(../images/icon-slides.png) no-repeat -84px 50% rgba(0, 0, 0, 0);
             &:hover {
               background-position: 0 50%;
             }
           }
           &:nth-of-type(2) {
             right: 0;
-            background: url(../images/icon-slides.png) no-repeat -125px 50% rgba(0,0,0,0);
+            background: url(../images/icon-slides.png) no-repeat -125px 50% rgba(0, 0, 0, 0);
             &:hover {
               background-position: -42px 50%;
             }
@@ -648,14 +667,14 @@ div.slider-menu {
         > label {
           width: 6px;
           height: 6px;
-          border: 2px solid rgba(255,255,255,0.3);
+          border: 2px solid rgba(255, 255, 255, 0.3);
           border-radius: 50%;
-          background-color: rgba(0,0,0,0.4);
+          background-color: rgba(0, 0, 0, 0.4);
           // background-color: red;
           margin: 0 4px;
           cursor: pointer;
           &:hover {
-            background-color: hsla(0,0%,100%,0.4);
+            background-color: hsla(0, 0%, 100%, 0.4);
           }
         }
       }
@@ -702,7 +721,7 @@ div.slider-menu {
         }
       }
       > ul {
-      /* 提取链接和名称生成html
+        /* 提取链接和名称生成html
         let mlist = document.querySelector('#J_categoryList > li.category-item.category-item-active > div');
         var s = "";
         for(let i=0;i<mlist.children.length;i++){
@@ -716,7 +735,7 @@ div.slider-menu {
         }
         copy(s);
       */
-      // 更换链接 src=".+/(.+[.].+)([?].+)?"
+        // 更换链接 src=".+/(.+[.].+)([?].+)?"
         height: 456px;
         padding: 2px 0;
         background-color: white;
@@ -729,13 +748,13 @@ div.slider-menu {
         flex-flow: row wrap;
         writing-mode: vertical-lr;
         // align-content: flex-start;
-        box-shadow: 0 8px 16px rgba(0,0,0,.18);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.18);
         > li {
           writing-mode: horizontal-tb;
           width: 225px;
           height: 40px;
           padding: 18px 3px 18px 20px;
-          > a{
+          > a {
             display: block;
             width: 100%;
             height: 100%;
@@ -746,18 +765,18 @@ div.slider-menu {
               vertical-align: middle;
             }
             > span {
-              color:black;
+              color: black;
               font-size: 14px;
               line-height: 40px;
               vertical-align: middle;
             }
           }
           &:hover {
-           > a {
-             > span {
-               color: #ff6700;
-             }
-           } 
+            > a {
+              > span {
+                color: #ff6700;
+              }
+            }
           }
         }
       }
@@ -778,14 +797,14 @@ div.poster {
     width: 228px;
     height: 164px;
     padding: 3px;
-    background-color: rgb(95,87,80);
+    background-color: rgb(95, 87, 80);
     margin-right: 14px;
     > li {
       float: left;
       width: 70px;
       padding: 0 3px;
       height: 82px;
-      > a{
+      > a {
         display: block;
         width: 100%;
         height: 46px;
@@ -797,7 +816,7 @@ div.poster {
         &:hover {
           opacity: 1;
         }
-        >img {
+        > img {
           width: 24px;
           height: 24px;
           margin: 0 23px 4px;
@@ -810,11 +829,11 @@ div.poster {
     }
   }
   > a {
-    &:nth-of-type(n+2){
+    &:nth-of-type(n + 2) {
       margin-left: 15px;
     }
     &:hover {
-      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
     }
     > img {
       width: 316px;
@@ -840,7 +859,7 @@ main {
     &.flash-sale {
       @include clearfix;
       position: relative;
-      >div.countdown {
+      > div.countdown {
         width: 234px;
         height: 300px;
         float: left;
@@ -851,18 +870,20 @@ main {
         > p {
           text-align: center;
           margin: 0;
-          &:nth-of-type(1){
+          &:nth-of-type(1) {
             font-size: 21px;
             color: #ef3a3b;
             padding-top: 15px;
           }
-          &:nth-of-type(2){
+          &:nth-of-type(2) {
             font-size: 15px;
-            color: rgba(0,0,0,.54);
+            color: rgba(0, 0, 0, 0.54);
           }
-          &:nth-of-type(3){
+          &:nth-of-type(3) {
             margin-top: 28px;
-            .hour, .minute, .second {
+            .hour,
+            .minute,
+            .second {
               display: inline-block;
               text-align: center;
               width: 46px;
@@ -872,9 +893,9 @@ main {
               font-size: 24px;
               line-height: 46px;
             }
-             .colon {
+            .colon {
               display: inline-block;
-              text-align:center;
+              text-align: center;
               width: 15px;
               height: 46px;
               color: #605751;
@@ -888,7 +909,7 @@ main {
           margin: 25px auto;
         }
       }
-      >div.slider-four {
+      > div.slider-four {
         width: 978px;
         height: 340px;
         float: left;
@@ -898,15 +919,15 @@ main {
         background-color: rgb(241, 237, 237);
         font-size: 0;
         white-space: nowrap;
-        >input {
+        > input {
           display: none;
           @for $i from 1 through 6 {
             &:nth-of-type(#{$i}):checked {
-              ~ a{
+              ~ a {
                 transform: translate(-992px * ($i - 1));
               }
               ~ div.flash-labels {
-                > div:nth-of-type(#{$i}){
+                > div:nth-of-type(#{$i}) {
                   display: block;
                 }
               }
@@ -914,7 +935,7 @@ main {
           }
         }
         // 选中后，改变label位置，改变label中的字符，平移下面的条
-        > div.flash-labels{
+        > div.flash-labels {
           position: absolute;
           width: 70px;
           height: 24px;
@@ -941,7 +962,7 @@ main {
               color: #e0e0e0;
               cursor: default;
             }
-            &:not(.disabled):hover{
+            &:not(.disabled):hover {
               color: #ff6700;
             }
           }
@@ -965,7 +986,7 @@ main {
           height: 300px;
           margin-right: 14px;
           padding-top: 39px;
-          background-color: rgb(250,250,250);
+          background-color: rgb(250, 250, 250);
           border-top: 1px solid #e53935; // 颜色不一样
           transition: transform 0.6s;
           font-size: 16px;
@@ -999,24 +1020,24 @@ main {
             > span {
               color: #ff6709;
             }
-            >del {
+            > del {
               color: #b0b0b0;
             }
           }
-          &:nth-of-type(5n+1){
-            border-top-color: rgb(255,172,19);
+          &:nth-of-type(5n + 1) {
+            border-top-color: rgb(255, 172, 19);
           }
-          &:nth-of-type(5n+2){
-            border-top-color: rgb(131,196,78);
+          &:nth-of-type(5n + 2) {
+            border-top-color: rgb(131, 196, 78);
           }
-          &:nth-of-type(5n+3){
-            border-top-color: rgb(33,150,243);
+          &:nth-of-type(5n + 3) {
+            border-top-color: rgb(33, 150, 243);
           }
-          &:nth-of-type(5n+4){
-            border-top-color: rgb(229,57,53);
+          &:nth-of-type(5n + 4) {
+            border-top-color: rgb(229, 57, 53);
           }
-          &:nth-of-type(5n+5){
-            border-top-color: rgb(0,192,165);
+          &:nth-of-type(5n + 5) {
+            border-top-color: rgb(0, 192, 165);
           }
         }
       }
@@ -1024,8 +1045,8 @@ main {
     &.phone {
       position: relative;
       font-size: 0;
-      > a{
-        &:nth-of-type(1){
+      > a {
+        &:nth-of-type(1) {
           display: block;
           position: absolute;
           top: 0;
@@ -1051,7 +1072,7 @@ main {
             }
           }
         }
-        &:nth-of-type(2){
+        &:nth-of-type(2) {
           display: inline-block;
           width: 234px;
           height: 614px;
@@ -1062,7 +1083,7 @@ main {
           }
         }
       }
-      > div{
+      > div {
         // let mlist = document.querySelectorAll('#app > div.page-main.home-main > div > div:nth-child(3) > div.box-bd.clearfix > div > div.span16 > ul > li.brick-item');
         // var tag = "";
         // for(let i=0;i<mlist.length;i++){
@@ -1094,135 +1115,198 @@ main {
         }
       }
     }
-    &.home-electronics{
-      position: relative;
-      font-size: 0;
-      // > p {
-      //   position: absolute;
-      //   font-size: 16px;
-      //   line-height: 1.5;
-      //   padding: 0 15px;
-      //   margin: 0;
-      //   top: 16px;
-      //   right: 0;
-      //   &:hover {
-      //     > span{
-      //       transition: none;
-      //       color: black;
-      //       border-bottom-color: rgba(0,0,0,0);
-      //     }
+    &.home-electronics, &.intelligence, &.ancillary-product {
+      // let mlist = document.querySelectorAll('#app > div.page-main.home-main > div > div:nth-child(5) > div.box-bd > div > div.span16 > div:nth-child(2) > ul > div > li');
+      // var tag = "";
+      // for(let i=0;i<mlist.length;i++){
+      //   let href = mlist[i].querySelector('a').href;
+      //   let src = mlist[i].querySelector('img').src;
+      //   let title = mlist[i].querySelector('.title').textContent.trim();
+      //   let desc = mlist[i].querySelector('.desc');
+      //   if(desc !== null){
+      //     desc = desc.textContent;
+      //   }else{
+      //     break;
       //   }
+      //   let d = mlist[i].querySelector('.price del');
+      //   let price = mlist[i].querySelector('.price').textContent;
+      //   let del_price = "";
+      //   if(d !== null){
+      //     del_price = d.textContent;
+      //     price = price.replace(del_price,"")
+      //   }
+      //   let s = "<a href=\""+href+"\">\n  <img src=\""+src+"\">\n  <h3>"+title+"</h3>\n  <p class=\"desc\">"+desc+"</p>\n <p class=\"price\"><span>"+price+"</span> <del>"+del_price+"</del></p>\n</a>\n";
+      //   tag += s;
       // }
-
+      // console.log(tag);
+      position: relative;
+      // font-size: 0;
+      > div {
+        @include two-img-vertical;
+        // width: 234px;
+        // height: 614px;
+        // margin-right: 14px;
+        // vertical-align: top;
+        // > a {
+        //   display: block;
+        //   @include hover3d;
+        //   > img {
+        //     width: 234px;
+        //     height: 300px;
+        //     vertical-align: top;
+        //     &:nth-of-type(1) {
+        //       margin-bottom: 14px;
+        //     }
+        //   }
+        // }
+      }
       > ul {
-        position: absolute;
-        top: 16px;
-        right: 0;
-        &:hover {
-          > li {
-            > span{
-              transition: none;
-              color: black;
-              border-bottom-color: rgba(0,0,0,0);
+
+        > li > div {
+          position: absolute;
+          right: 0;
+          top: 42px;
+          display: flex;
+          width: 978px;
+          height: 614px;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          align-content: space-between;
+          > a {
+            @include product;
+          }
+          > div {
+            width: 234px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            > a {
+              &:not(.more){
+                @include product-less;
+              }
+              &.more {
+                @include view-more;
+              }
             }
           }
         }
+        font-size: 0;
+        position: absolute;
+        top: 16px;
+        right: 0;
         > li {
           display: inline-block;
           font-size: 16px;
           line-height: 1.5;
           padding: 0 15px;
-          > span {
-            display: inline-block;
-            border-bottom: 2px solid rgba(0,0,0,0);
-            transition: all 0s 9999s;
-          }
-          .default_select{
-            color: #ff6700;
-            border-bottom-color: #ff6700;;
-          }
-          &:hover {
-            > span{
-              color: #ff6700;
-              border-bottom-color: #ff6700;;
-              transition: none;
-            }
-          }
-          &:first-of-type{
+          &:first-of-type {
             padding-left: 0;
           }
-          &:last-of-type{
+          &:last-of-type {
             padding-right: 0;
           }
         }
-        
-      }
-      > div {
-        display: inline-block;
-        vertical-align: top;
-        &:nth-of-type(1){
-          width: 234px;
-          height: 614px;
-          margin-right: 14px;
-          > a {
-            display: block;
-            @include hover3d;
-            > img {
-              width: 234px;
-              height: 300px;
-              vertical-align: top;
-              &:nth-of-type(1){
-                margin-bottom: 14px;
-              }
-            }
+
+        > li {
+          // 子元素没有被hover时
+          > span {
+            display: inline-block;
+            color: black;
+            border-bottom: 2px solid rgba(0, 0, 0, 0);
+            transition: all 0s 9999s;
           }
-        }
-        &:nth-of-type(2){
-          position:relative;
           > div {
-            position: absolute;
-            display: flex;
-            width: 978px;
-            height: 614px;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-content: space-between;
-            > a{
-              @include product;
-            }
-            > div {
-              width: 234px;
-              height: 300px;
-              display: flex;
-              flex-direction: column;
-              justify-content: space-between;
-              // background-color: pink;
-              > a {
-                &:nth-of-type(1){
-                  @include product-less;
-                }
-                &:nth-of-type(2){
-                  @include view-more;
-                }
-              }
-            }
+            visibility: hidden;
+            transition: all 0s 9999s;
+          }
+        }
+
+        > li:first-of-type {
+          // 第一个默认变色，默认显示菜单
+          > span {
+            color: #ff6700;
+            border-bottom-color: #ff6700;
+          }
+          > div {
+            visibility: visible;
+          }
+        }
+
+        &:hover > li {
+          // 父元素被hover时，子元素重置默认值
+          > span {
+            transition: none;
+            // transition: border-bottom-color 0.3s;
+            color: black;
+            border-bottom-color: rgba(0, 0, 0, 0);
+          }
+          > div {
+            transition: none;
+            visibility: hidden;
+          }
+        }
+
+        > li:hover {
+          // 子元素被hover时，变色，显示
+          > span {
+            color: #ff6700;
+            border-bottom-color: #ff6700;
+            // transition: border-bottom-color 0.3s;
+            transition: none;
+          }
+          > div {
+            transition: none;
+            visibility: visible;
           }
         }
       }
-      // > div:nth-of-type(2) > div {
-      //   visibility: hidden;
-      //   transition: visibility 0s 9999s;
-      // }
-      // > ul > li:nth-of-type(1):hover ~
     }
+    // &.intelligence {
+    //   > div {
+    //     @include two-img-vertical;
+    //   }
+    //   > ul {
+    //     > li > div {
+    //       position: absolute;
+    //       right: 0;
+    //       top: 42px;
+    //       display: flex;
+    //       width: 978px;
+    //       height: 614px;
+    //       flex-wrap: wrap;
+    //       justify-content: space-between;
+    //       align-content: space-between;
+    //       > a {
+    //         @include product;
+    //       }
+    //       > div {
+    //         width: 234px;
+    //         height: 300px;
+    //         display: flex;
+    //         flex-direction: column;
+    //         justify-content: space-between;
+    //         > a {
+    //           &:nth-of-type(1) {
+    //             @include product-less;
+    //           }
+    //           &:nth-of-type(2) {
+    //             @include view-more;
+    //           }
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
   }
+
   > a {
     display: block;
     @include center-container;
     margin-top: 36px;
     margin-bottom: 22px;
     > img {
-      vertical-align:top;
+      vertical-align: top;
     }
   }
 }

@@ -1,0 +1,175 @@
+$gap: 12px;
+$triangle-height: 6px;
+$move: 4px;
+
+@function reverse-direction($direction) {
+  @if $direction == up {
+    @return down;
+  } @else if $direction == down {
+    @return up;
+  } @else if $direction == left {
+    @return right;
+  } @else {
+    @return left;
+  }
+}
+
+@function get-direction-property($direction) {
+  @if $direction == up {
+    @return top;
+  } @else if $direction == down {
+    @return bottom;
+  } @else if $direction == left {
+    @return left;
+  } @else {
+    @return right;
+  }
+}
+
+@mixin triangle($direction, $triangle_color: black) {
+  content: "";
+  border: $triangle-height solid transparent;
+  @if $direction == up {
+    border-bottom-color: $triangle_color;
+    border-top-width: 0;
+  } @else if $direction == down {
+    border-top-color: $triangle_color;
+    border-bottom-width: 0;
+  } @else if $direction == left {
+    border-right-color: $triangle_color;
+    border-left-width: 0;
+  } @else {
+    border-left-color: $triangle_color;
+    border-right-width: 0;
+  }
+}
+
+[aria-label]::before {
+  display: inline-block;
+  content: attr(aria-label);
+  background-color: black;
+  color: white;
+  white-space: nowrap;
+  padding: 6px 12px;
+}
+
+[data-balloon-pos] {
+  position: relative;
+  &::before, &::after {
+    position: absolute;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+  }
+  &:hover {  
+    &::before, &::after {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+@each $direction in up, down, left, right {
+  [data-balloon-pos|="#{$direction}"]{
+    &::before, &::after {
+      @if $direction == up or $direction == down{
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      @if $direction == left or $direction == right {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      transition: opacity 0.3s, #{get-direction-property(reverse-direction($direction))} 0.3s, visibility 0s 0.3s;
+    }
+    &::before {
+      #{get-direction-property(reverse-direction($direction))}: calc(100% + #{$gap - $move});
+    }
+    &::after {
+      @include triangle(reverse-direction($direction));
+      #{get-direction-property(reverse-direction($direction))}: calc(100% + #{$gap/2 - $move});
+    }
+    &:hover {
+      &::before {
+        #{get-direction-property(reverse-direction($direction))}: calc(100% + #{$gap});
+      }
+      &::after {
+        #{get-direction-property(reverse-direction($direction))}: calc(100% + #{$gap/2});
+      }
+      &::before, &::after {
+        transition: opacity 0.3s, #{get-direction-property(reverse-direction($direction))} 0.3s, visibility 0s 0s;
+      }
+    }
+  }
+}
+
+@each $direction in left, right {
+  [data-balloon-pos$="-#{$direction}"] {
+    &::before, &::after {
+      transform: none;
+    }
+    &::before {
+      #{get-direction-property($direction)}: 0;
+      #{get-direction-property(reverse-direction($direction))}: auto;
+    }
+    &::after {
+      #{get-direction-property($direction)}: 5px;
+      #{get-direction-property(reverse-direction($direction))}: auto;
+    }
+  }
+}
+
+@each $balloon-length in small, medium, large, xlarge, fit {
+  [data-balloon-length="#{$balloon-length}"]{
+    &::before {
+      white-space: normal;
+      box-sizing: border-box;
+      @if $balloon-length == small {
+        width: 80px;
+      }@else if $balloon-length == medium {
+        width: 150px;
+      }@else if $balloon-length == large {
+        width: 260px;
+      }@else if $balloon-length == xlarge {
+        width: 380px;
+      }@else if $balloon-length == fit {
+        width: 100%;
+      }
+    }
+  }
+}
+
+[data-balloon-blunt] {
+  &::before, &::after {
+    transition: none;
+  }
+  &:hover {
+    &::before, &::after {
+      transition: none;
+    }
+  }
+}
+
+[data-balloon-visible] {
+  &::before, &::after {
+    opacity: 1;
+    visibility: visible;
+    transition: none;
+  }
+  &:hover {
+    &::before, &::after {
+      transition: none;
+    }
+  }
+}
+
+@each $direction in up, down, left, right {
+  [data-balloon-visible][data-balloon-pos|="#{$direction}"]{
+    &::before {
+      #{get-direction-property(reverse-direction($direction))}: calc(100% + #{$gap});
+    }
+    &::after {
+      #{get-direction-property(reverse-direction($direction))}: calc(100% + #{$gap/2});
+    }
+  }
+}
