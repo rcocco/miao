@@ -53,6 +53,10 @@
   content: "\E637";
 }
 
+.icon-message::before {
+  content: "\E600";
+}
+
 body {
   margin: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
@@ -1724,9 +1728,6 @@ footer > div.footer > div > ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1743,8 +1744,8 @@ footer > div.footer > div > ul > li {
   color: #616161;
 }
 
-footer > div.footer > div > ul > li:not(:last-of-type) {
-  border-right: 1px solid #e0e0e0;
+footer > div.footer > div > ul > li:not(:first-of-type) {
+  border-left: 1px solid #e0e0e0;
 }
 
 footer > div.footer > div > ul > li > a {
@@ -1761,6 +1762,8 @@ footer > div.footer > div > ul > li > a > span {
   line-height: 24px;
   vertical-align: -4px;
   margin-right: 6px;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
 }
 
 footer > div.footer > div > div {
@@ -1773,6 +1776,133 @@ footer > div.footer > div > div {
   padding: 40px 0;
 }
 
+footer > div.footer > div > div > ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+footer > div.footer > div > div > ul > li {
+  width: 160px;
+}
+
+footer > div.footer > div > div > ul > li > h3 {
+  font-size: 14px;
+  line-height: 1.25;
+  color: #424242;
+  margin: -1px 0 26px;
+  font-weight: 400;
+}
+
+footer > div.footer > div > div > ul > li > ul > li {
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+footer > div.footer > div > div > ul > li > ul > li > a {
+  color: #757575;
+}
+
+footer > div.footer > div > div > ul > li > ul > li > a:hover {
+  color: #ff6700;
+}
+
+footer > div.footer > div > div > div {
+  width: 251px;
+  border-left: 1px solid #e0e0e0;
+  text-align: center;
+}
+
+footer > div.footer > div > div > div > p:nth-child(1) {
+  font-size: 22px;
+  line-height: 1;
+  color: #ff6700;
+  margin: 0 0 5px;
+}
+
+footer > div.footer > div > div > div > p:nth-child(2) {
+  font-size: 12px;
+  line-height: 18px;
+  color: #616161;
+  margin: 0 0 5px;
+}
+
+footer > div.footer > div > div > div > a:nth-child(3) {
+  display: block;
+  width: 118px;
+  margin: 0 auto;
+  height: 28px;
+  font-size: 12px;
+  line-height: 28px;
+  border: 1px solid #ff6700;
+  color: #ff6700;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+footer > div.footer > div > div > div > a:nth-child(3) > span {
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+}
+
+footer > div.footer > div > div > div > a:nth-child(3):hover {
+  color: white;
+  background-color: #f25807;
+  border-color: #f25807;
+}
+
+footer > div.footer > div > div > div > p:nth-child(4) {
+  position: relative;
+  margin: 10px 0 0;
+  font-size: 0;
+}
+
+footer > div.footer > div > div > div > p:nth-child(4) > span {
+  font-size: 12px;
+  line-height: 18px;
+  color: #616161;
+  vertical-align: middle;
+}
+
+footer > div.footer > div > div > div > p:nth-child(4) > a {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  margin: -3px 0 0 6px;
+}
+
+footer > div.footer > div > div > div > p:nth-child(4) > a:nth-of-type(1) {
+  background: url(https://cdn.cnbj1.fds.api.mi-img.com/staticsfile/global/wb.png) 50% 0/cover no-repeat;
+}
+
+footer > div.footer > div > div > div > p:nth-child(4) > a:nth-of-type(1):hover {
+  background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/staticsfile/global/wb@2x.png);
+}
+
+footer > div.footer > div > div > div > p:nth-child(4) > a:nth-of-type(2) {
+  background: url(https://cdn.cnbj1.fds.api.mi-img.com/staticsfile/global/wx.png) 50% 0/cover no-repeat;
+}
+
+footer > div.footer > div > div > div > p:nth-child(4) > a:nth-of-type(2) > img {
+  position: absolute;
+  display: none;
+  width: 126px;
+  height: 126px;
+  top: 20px;
+  left: 100px;
+}
+
+footer > div.footer > div > div > div > p:nth-child(4) > a:nth-of-type(2):hover {
+  background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/staticsfile/global/wx@2x.png);
+}
+
+footer > div.footer > div > div > div > p:nth-child(4) > a:nth-of-type(2):hover img {
+  display: block;
+}
+
 footer > div.info {
   height: 187px;
   padding: 30px 0;
@@ -1782,5 +1912,34 @@ footer > div.info {
 footer > div.info > div {
   width: 1226px;
   margin: auto;
+}
+
+footer > div.info > div > * {
+  display: inline-block;
+}
+
+footer > div.info > div > img {
+  width: 57px;
+  height: 57px;
+  margin-right: 10px;
+  vertical-align: top;
+}
+
+footer > div.info > div > div > ul {
+  font-size: 12px;
+  line-height: 18px;
+  color: #b0b0b0;
+}
+
+footer > div.info > div > div > ul:nth-of-type(1) > li:nth-of-type(odd) {
+  color: #757575;
+}
+
+footer > div.info > div > div > ul > li {
+  display: inline-block;
+}
+
+footer > div.info > div > div > ul a:hover {
+  color: #ff6700;
 }
 /*# sourceMappingURL=style.css.map */
