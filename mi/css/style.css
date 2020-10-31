@@ -29,6 +29,30 @@
   content: "\E615";
 }
 
+.icon-play::before {
+  content: "\E601";
+}
+
+.icon-tool::before {
+  content: "\E634";
+}
+
+.icon-circle7::before {
+  content: "\E635";
+}
+
+.icon-circle15::before {
+  content: "\E636";
+}
+
+.icon-gift::before {
+  content: "\E638";
+}
+
+.icon-location::before {
+  content: "\E637";
+}
+
 body {
   margin: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
@@ -43,6 +67,7 @@ ul {
 a {
   -webkit-text-decoration-line: none;
           text-decoration-line: none;
+  color: inherit;
 }
 
 a.bar {
@@ -1138,7 +1163,7 @@ main > div.phone {
   font-size: 0;
 }
 
-main > div.phone > a:nth-of-type(1) {
+main > div.phone > a.view-all {
   display: block;
   position: absolute;
   top: 0;
@@ -1150,7 +1175,7 @@ main > div.phone > a:nth-of-type(1) {
   transition: all 0.4s;
 }
 
-main > div.phone > a:nth-of-type(1) > span {
+main > div.phone > a.view-all > span {
   padding: 4px;
   font-size: 12px;
   border-radius: 16px;
@@ -1162,15 +1187,15 @@ main > div.phone > a:nth-of-type(1) > span {
   transition: all 0.4s;
 }
 
-main > div.phone > a:nth-of-type(1):hover {
+main > div.phone > a.view-all:hover {
   color: #ff6700;
 }
 
-main > div.phone > a:nth-of-type(1):hover > span {
+main > div.phone > a.view-all:hover > span {
   background-color: #ff6700;
 }
 
-main > div.phone > a:nth-of-type(2) {
+main > div.phone > a:not(.view-all) {
   display: inline-block;
   width: 234px;
   height: 614px;
@@ -1179,14 +1204,14 @@ main > div.phone > a:nth-of-type(2) {
   transition: all 0.2s linear;
 }
 
-main > div.phone > a:nth-of-type(2):hover {
+main > div.phone > a:not(.view-all):hover {
   -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
           box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
   -webkit-transform: translate3d(0, -2px, 0);
           transform: translate3d(0, -2px, 0);
 }
 
-main > div.phone > a:nth-of-type(2) > img {
+main > div.phone > a:not(.view-all) > img {
   vertical-align: top;
 }
 
@@ -1268,48 +1293,48 @@ main > div.phone > div > a > p.price > del {
   color: #b0b0b0;
 }
 
-main > div.home-electronics, main > div.intelligence, main > div.ancillary-product {
+main > div.home-electronics, main > div.intelligence, main > div.ancillary-product, main > div.fitting, main > div.peripheral-product {
   position: relative;
 }
 
-main > div.home-electronics > div, main > div.intelligence > div, main > div.ancillary-product > div {
+main > div.home-electronics > div, main > div.intelligence > div, main > div.ancillary-product > div, main > div.fitting > div, main > div.peripheral-product > div {
   width: 234px;
   height: 614px;
   margin-right: 14px;
   vertical-align: top;
 }
 
-main > div.home-electronics > div > a, main > div.intelligence > div > a, main > div.ancillary-product > div > a {
+main > div.home-electronics > div > a, main > div.intelligence > div > a, main > div.ancillary-product > div > a, main > div.fitting > div > a, main > div.peripheral-product > div > a {
   display: block;
   -webkit-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
 
-main > div.home-electronics > div > a:hover, main > div.intelligence > div > a:hover, main > div.ancillary-product > div > a:hover {
+main > div.home-electronics > div > a:hover, main > div.intelligence > div > a:hover, main > div.ancillary-product > div > a:hover, main > div.fitting > div > a:hover, main > div.peripheral-product > div > a:hover {
   -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
           box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
   -webkit-transform: translate3d(0, -2px, 0);
           transform: translate3d(0, -2px, 0);
 }
 
-main > div.home-electronics > div > a > img, main > div.intelligence > div > a > img, main > div.ancillary-product > div > a > img {
+main > div.home-electronics > div > a > img, main > div.intelligence > div > a > img, main > div.ancillary-product > div > a > img, main > div.fitting > div > a > img, main > div.peripheral-product > div > a > img {
   width: 234px;
   height: 300px;
   vertical-align: top;
 }
 
-main > div.home-electronics > div > a > img:nth-of-type(1), main > div.intelligence > div > a > img:nth-of-type(1), main > div.ancillary-product > div > a > img:nth-of-type(1) {
+main > div.home-electronics > div > a > img:nth-of-type(1), main > div.intelligence > div > a > img:nth-of-type(1), main > div.ancillary-product > div > a > img:nth-of-type(1), main > div.fitting > div > a > img:nth-of-type(1), main > div.peripheral-product > div > a > img:nth-of-type(1) {
   margin-bottom: 14px;
 }
 
-main > div.home-electronics > ul, main > div.intelligence > ul, main > div.ancillary-product > ul {
+main > div.home-electronics > ul, main > div.intelligence > ul, main > div.ancillary-product > ul, main > div.fitting > ul, main > div.peripheral-product > ul {
   font-size: 0;
   position: absolute;
   top: 16px;
   right: 0;
 }
 
-main > div.home-electronics > ul > li > div, main > div.intelligence > ul > li > div, main > div.ancillary-product > ul > li > div {
+main > div.home-electronics > ul > li > div, main > div.intelligence > ul > li > div, main > div.ancillary-product > ul > li > div, main > div.fitting > ul > li > div, main > div.peripheral-product > ul > li > div {
   position: absolute;
   right: 0;
   top: 42px;
@@ -1327,7 +1352,7 @@ main > div.home-electronics > ul > li > div, main > div.intelligence > ul > li >
       align-content: space-between;
 }
 
-main > div.home-electronics > ul > li > div > a, main > div.intelligence > ul > li > div > a, main > div.ancillary-product > ul > li > div > a {
+main > div.home-electronics > ul > li > div > a, main > div.intelligence > ul > li > div > a, main > div.ancillary-product > ul > li > div > a, main > div.fitting > ul > li > div > a, main > div.peripheral-product > ul > li > div > a {
   display: inline-block;
   vertical-align: top;
   width: 234px;
@@ -1340,21 +1365,21 @@ main > div.home-electronics > ul > li > div > a, main > div.intelligence > ul > 
   transition: all 0.2s linear;
 }
 
-main > div.home-electronics > ul > li > div > a:hover, main > div.intelligence > ul > li > div > a:hover, main > div.ancillary-product > ul > li > div > a:hover {
+main > div.home-electronics > ul > li > div > a:hover, main > div.intelligence > ul > li > div > a:hover, main > div.ancillary-product > ul > li > div > a:hover, main > div.fitting > ul > li > div > a:hover, main > div.peripheral-product > ul > li > div > a:hover {
   -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
           box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
   -webkit-transform: translate3d(0, -2px, 0);
           transform: translate3d(0, -2px, 0);
 }
 
-main > div.home-electronics > ul > li > div > a > img, main > div.intelligence > ul > li > div > a > img, main > div.ancillary-product > ul > li > div > a > img {
+main > div.home-electronics > ul > li > div > a > img, main > div.intelligence > ul > li > div > a > img, main > div.ancillary-product > ul > li > div > a > img, main > div.fitting > ul > li > div > a > img, main > div.peripheral-product > ul > li > div > a > img {
   display: block;
   width: 160px;
   height: 160px;
   margin: 0 auto 18px;
 }
 
-main > div.home-electronics > ul > li > div > a > h3, main > div.intelligence > ul > li > div > a > h3, main > div.ancillary-product > ul > li > div > a > h3 {
+main > div.home-electronics > ul > li > div > a > h3, main > div.intelligence > ul > li > div > a > h3, main > div.ancillary-product > ul > li > div > a > h3, main > div.fitting > ul > li > div > a > h3, main > div.peripheral-product > ul > li > div > a > h3 {
   font-size: 14px;
   line-height: 21px;
   color: #212121;
@@ -1365,7 +1390,7 @@ main > div.home-electronics > ul > li > div > a > h3, main > div.intelligence > 
   white-space: nowrap;
 }
 
-main > div.home-electronics > ul > li > div > a > p.desc, main > div.intelligence > ul > li > div > a > p.desc, main > div.ancillary-product > ul > li > div > a > p.desc {
+main > div.home-electronics > ul > li > div > a > p.desc, main > div.intelligence > ul > li > div > a > p.desc, main > div.ancillary-product > ul > li > div > a > p.desc, main > div.fitting > ul > li > div > a > p.desc, main > div.peripheral-product > ul > li > div > a > p.desc {
   height: 18px;
   margin: 0 10px 10px;
   font-size: 12px;
@@ -1375,20 +1400,20 @@ main > div.home-electronics > ul > li > div > a > p.desc, main > div.intelligenc
   white-space: nowrap;
 }
 
-main > div.home-electronics > ul > li > div > a > p.price, main > div.intelligence > ul > li > div > a > p.price, main > div.ancillary-product > ul > li > div > a > p.price {
+main > div.home-electronics > ul > li > div > a > p.price, main > div.intelligence > ul > li > div > a > p.price, main > div.ancillary-product > ul > li > div > a > p.price, main > div.fitting > ul > li > div > a > p.price, main > div.peripheral-product > ul > li > div > a > p.price {
   font-size: 14px;
   margin: 0 10px 14px;
 }
 
-main > div.home-electronics > ul > li > div > a > p.price > span, main > div.intelligence > ul > li > div > a > p.price > span, main > div.ancillary-product > ul > li > div > a > p.price > span {
+main > div.home-electronics > ul > li > div > a > p.price > span, main > div.intelligence > ul > li > div > a > p.price > span, main > div.ancillary-product > ul > li > div > a > p.price > span, main > div.fitting > ul > li > div > a > p.price > span, main > div.peripheral-product > ul > li > div > a > p.price > span {
   color: #ff6709;
 }
 
-main > div.home-electronics > ul > li > div > a > p.price > del, main > div.intelligence > ul > li > div > a > p.price > del, main > div.ancillary-product > ul > li > div > a > p.price > del {
+main > div.home-electronics > ul > li > div > a > p.price > del, main > div.intelligence > ul > li > div > a > p.price > del, main > div.ancillary-product > ul > li > div > a > p.price > del, main > div.fitting > ul > li > div > a > p.price > del, main > div.peripheral-product > ul > li > div > a > p.price > del {
   color: #b0b0b0;
 }
 
-main > div.home-electronics > ul > li > div > div, main > div.intelligence > ul > li > div > div, main > div.ancillary-product > ul > li > div > div {
+main > div.home-electronics > ul > li > div > div, main > div.intelligence > ul > li > div > div, main > div.ancillary-product > ul > li > div > div, main > div.fitting > ul > li > div > div, main > div.peripheral-product > ul > li > div > div {
   width: 234px;
   height: 300px;
   display: -webkit-box;
@@ -1403,7 +1428,7 @@ main > div.home-electronics > ul > li > div > div, main > div.intelligence > ul 
           justify-content: space-between;
 }
 
-main > div.home-electronics > ul > li > div > div > a:not(.more), main > div.intelligence > ul > li > div > div > a:not(.more), main > div.ancillary-product > ul > li > div > div > a:not(.more) {
+main > div.home-electronics > ul > li > div > div > a:not(.more), main > div.intelligence > ul > li > div > div > a:not(.more), main > div.ancillary-product > ul > li > div > div > a:not(.more), main > div.fitting > ul > li > div > div > a:not(.more), main > div.peripheral-product > ul > li > div > div > a:not(.more) {
   display: inline-block;
   vertical-align: top;
   width: 234px;
@@ -1416,14 +1441,14 @@ main > div.home-electronics > ul > li > div > div > a:not(.more), main > div.int
   transition: all 0.2s linear;
 }
 
-main > div.home-electronics > ul > li > div > div > a:not(.more):hover, main > div.intelligence > ul > li > div > div > a:not(.more):hover, main > div.ancillary-product > ul > li > div > div > a:not(.more):hover {
+main > div.home-electronics > ul > li > div > div > a:not(.more):hover, main > div.intelligence > ul > li > div > div > a:not(.more):hover, main > div.ancillary-product > ul > li > div > div > a:not(.more):hover, main > div.fitting > ul > li > div > div > a:not(.more):hover, main > div.peripheral-product > ul > li > div > div > a:not(.more):hover {
   -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
           box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
   -webkit-transform: translate3d(0, -2px, 0);
           transform: translate3d(0, -2px, 0);
 }
 
-main > div.home-electronics > ul > li > div > div > a:not(.more) > img, main > div.intelligence > ul > li > div > div > a:not(.more) > img, main > div.ancillary-product > ul > li > div > div > a:not(.more) > img {
+main > div.home-electronics > ul > li > div > div > a:not(.more) > img, main > div.intelligence > ul > li > div > div > a:not(.more) > img, main > div.ancillary-product > ul > li > div > div > a:not(.more) > img, main > div.fitting > ul > li > div > div > a:not(.more) > img, main > div.peripheral-product > ul > li > div > div > a:not(.more) > img {
   float: right;
   vertical-align: top;
   width: 80px;
@@ -1432,7 +1457,7 @@ main > div.home-electronics > ul > li > div > div > a:not(.more) > img, main > d
   margin-top: -8px;
 }
 
-main > div.home-electronics > ul > li > div > div > a:not(.more) > h3, main > div.intelligence > ul > li > div > div > a:not(.more) > h3, main > div.ancillary-product > ul > li > div > div > a:not(.more) > h3 {
+main > div.home-electronics > ul > li > div > div > a:not(.more) > h3, main > div.intelligence > ul > li > div > div > a:not(.more) > h3, main > div.ancillary-product > ul > li > div > div > a:not(.more) > h3, main > div.fitting > ul > li > div > div > a:not(.more) > h3, main > div.peripheral-product > ul > li > div > div > a:not(.more) > h3 {
   font-size: 14px;
   line-height: 21px;
   color: #333;
@@ -1440,13 +1465,13 @@ main > div.home-electronics > ul > li > div > div > a:not(.more) > h3, main > di
   margin: 0 110px 5px 30px;
 }
 
-main > div.home-electronics > ul > li > div > div > a:not(.more) > p.price, main > div.intelligence > ul > li > div > div > a:not(.more) > p.price, main > div.ancillary-product > ul > li > div > div > a:not(.more) > p.price {
+main > div.home-electronics > ul > li > div > div > a:not(.more) > p.price, main > div.intelligence > ul > li > div > div > a:not(.more) > p.price, main > div.ancillary-product > ul > li > div > div > a:not(.more) > p.price, main > div.fitting > ul > li > div > div > a:not(.more) > p.price, main > div.peripheral-product > ul > li > div > div > a:not(.more) > p.price {
   font-size: 14px;
   margin: 0 110px 0 30px;
   color: #ff6709;
 }
 
-main > div.home-electronics > ul > li > div > div > a.more, main > div.intelligence > ul > li > div > div > a.more, main > div.ancillary-product > ul > li > div > div > a.more {
+main > div.home-electronics > ul > li > div > div > a.more, main > div.intelligence > ul > li > div > div > a.more, main > div.ancillary-product > ul > li > div > div > a.more, main > div.fitting > ul > li > div > div > a.more, main > div.peripheral-product > ul > li > div > div > a.more {
   display: inline-block;
   vertical-align: top;
   width: 234px;
@@ -1459,14 +1484,14 @@ main > div.home-electronics > ul > li > div > div > a.more, main > div.intellige
   transition: all 0.2s linear;
 }
 
-main > div.home-electronics > ul > li > div > div > a.more:hover, main > div.intelligence > ul > li > div > div > a.more:hover, main > div.ancillary-product > ul > li > div > div > a.more:hover {
+main > div.home-electronics > ul > li > div > div > a.more:hover, main > div.intelligence > ul > li > div > div > a.more:hover, main > div.ancillary-product > ul > li > div > div > a.more:hover, main > div.fitting > ul > li > div > div > a.more:hover, main > div.peripheral-product > ul > li > div > div > a.more:hover {
   -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
           box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
   -webkit-transform: translate3d(0, -2px, 0);
           transform: translate3d(0, -2px, 0);
 }
 
-main > div.home-electronics > ul > li > div > div > a.more > span, main > div.intelligence > ul > li > div > div > a.more > span, main > div.ancillary-product > ul > li > div > div > a.more > span {
+main > div.home-electronics > ul > li > div > div > a.more > span, main > div.intelligence > ul > li > div > div > a.more > span, main > div.ancillary-product > ul > li > div > div > a.more > span, main > div.fitting > ul > li > div > div > a.more > span, main > div.peripheral-product > ul > li > div > div > a.more > span {
   float: right;
   vertical-align: top;
   width: 48px;
@@ -1478,7 +1503,7 @@ main > div.home-electronics > ul > li > div > div > a.more > span, main > div.in
   color: #ff6700;
 }
 
-main > div.home-electronics > ul > li > div > div > a.more > h3, main > div.intelligence > ul > li > div > div > a.more > h3, main > div.ancillary-product > ul > li > div > div > a.more > h3 {
+main > div.home-electronics > ul > li > div > div > a.more > h3, main > div.intelligence > ul > li > div > div > a.more > h3, main > div.ancillary-product > ul > li > div > div > a.more > h3, main > div.fitting > ul > li > div > div > a.more > h3, main > div.peripheral-product > ul > li > div > div > a.more > h3 {
   font-size: 18px;
   line-height: 27px;
   color: #333;
@@ -1486,28 +1511,28 @@ main > div.home-electronics > ul > li > div > div > a.more > h3, main > div.inte
   margin: 0 110px 0 30px;
 }
 
-main > div.home-electronics > ul > li > div > div > a.more > p, main > div.intelligence > ul > li > div > div > a.more > p, main > div.ancillary-product > ul > li > div > div > a.more > p {
+main > div.home-electronics > ul > li > div > div > a.more > p, main > div.intelligence > ul > li > div > div > a.more > p, main > div.ancillary-product > ul > li > div > div > a.more > p, main > div.fitting > ul > li > div > div > a.more > p, main > div.peripheral-product > ul > li > div > div > a.more > p {
   font-size: 12px;
   color: #757575;
   margin: 0 110px 0 30px;
 }
 
-main > div.home-electronics > ul > li, main > div.intelligence > ul > li, main > div.ancillary-product > ul > li {
+main > div.home-electronics > ul > li, main > div.intelligence > ul > li, main > div.ancillary-product > ul > li, main > div.fitting > ul > li, main > div.peripheral-product > ul > li {
   display: inline-block;
   font-size: 16px;
   line-height: 1.5;
   padding: 0 15px;
 }
 
-main > div.home-electronics > ul > li:first-of-type, main > div.intelligence > ul > li:first-of-type, main > div.ancillary-product > ul > li:first-of-type {
+main > div.home-electronics > ul > li:first-of-type, main > div.intelligence > ul > li:first-of-type, main > div.ancillary-product > ul > li:first-of-type, main > div.fitting > ul > li:first-of-type, main > div.peripheral-product > ul > li:first-of-type {
   padding-left: 0;
 }
 
-main > div.home-electronics > ul > li:last-of-type, main > div.intelligence > ul > li:last-of-type, main > div.ancillary-product > ul > li:last-of-type {
+main > div.home-electronics > ul > li:last-of-type, main > div.intelligence > ul > li:last-of-type, main > div.ancillary-product > ul > li:last-of-type, main > div.fitting > ul > li:last-of-type, main > div.peripheral-product > ul > li:last-of-type {
   padding-right: 0;
 }
 
-main > div.home-electronics > ul > li > span, main > div.intelligence > ul > li > span, main > div.ancillary-product > ul > li > span {
+main > div.home-electronics > ul > li > span, main > div.intelligence > ul > li > span, main > div.ancillary-product > ul > li > span, main > div.fitting > ul > li > span, main > div.peripheral-product > ul > li > span {
   display: inline-block;
   color: black;
   border-bottom: 2px solid rgba(0, 0, 0, 0);
@@ -1515,45 +1540,162 @@ main > div.home-electronics > ul > li > span, main > div.intelligence > ul > li 
   transition: all 0s 9999s;
 }
 
-main > div.home-electronics > ul > li > div, main > div.intelligence > ul > li > div, main > div.ancillary-product > ul > li > div {
+main > div.home-electronics > ul > li > div, main > div.intelligence > ul > li > div, main > div.ancillary-product > ul > li > div, main > div.fitting > ul > li > div, main > div.peripheral-product > ul > li > div {
   visibility: hidden;
   -webkit-transition: all 0s 9999s;
   transition: all 0s 9999s;
 }
 
-main > div.home-electronics > ul > li:first-of-type > span, main > div.intelligence > ul > li:first-of-type > span, main > div.ancillary-product > ul > li:first-of-type > span {
+main > div.home-electronics > ul > li:first-of-type > span, main > div.intelligence > ul > li:first-of-type > span, main > div.ancillary-product > ul > li:first-of-type > span, main > div.fitting > ul > li:first-of-type > span, main > div.peripheral-product > ul > li:first-of-type > span {
   color: #ff6700;
   border-bottom-color: #ff6700;
 }
 
-main > div.home-electronics > ul > li:first-of-type > div, main > div.intelligence > ul > li:first-of-type > div, main > div.ancillary-product > ul > li:first-of-type > div {
+main > div.home-electronics > ul > li:first-of-type > div, main > div.intelligence > ul > li:first-of-type > div, main > div.ancillary-product > ul > li:first-of-type > div, main > div.fitting > ul > li:first-of-type > div, main > div.peripheral-product > ul > li:first-of-type > div {
   visibility: visible;
 }
 
-main > div.home-electronics > ul:hover > li > span, main > div.intelligence > ul:hover > li > span, main > div.ancillary-product > ul:hover > li > span {
+main > div.home-electronics > ul:hover > li > span, main > div.intelligence > ul:hover > li > span, main > div.ancillary-product > ul:hover > li > span, main > div.fitting > ul:hover > li > span, main > div.peripheral-product > ul:hover > li > span {
   -webkit-transition: none;
   transition: none;
   color: black;
   border-bottom-color: rgba(0, 0, 0, 0);
 }
 
-main > div.home-electronics > ul:hover > li > div, main > div.intelligence > ul:hover > li > div, main > div.ancillary-product > ul:hover > li > div {
+main > div.home-electronics > ul:hover > li > div, main > div.intelligence > ul:hover > li > div, main > div.ancillary-product > ul:hover > li > div, main > div.fitting > ul:hover > li > div, main > div.peripheral-product > ul:hover > li > div {
   -webkit-transition: none;
   transition: none;
   visibility: hidden;
 }
 
-main > div.home-electronics > ul > li:hover > span, main > div.intelligence > ul > li:hover > span, main > div.ancillary-product > ul > li:hover > span {
+main > div.home-electronics > ul > li:hover > span, main > div.intelligence > ul > li:hover > span, main > div.ancillary-product > ul > li:hover > span, main > div.fitting > ul > li:hover > span, main > div.peripheral-product > ul > li:hover > span {
   color: #ff6700;
   border-bottom-color: #ff6700;
   -webkit-transition: none;
   transition: none;
 }
 
-main > div.home-electronics > ul > li:hover > div, main > div.intelligence > ul > li:hover > div, main > div.ancillary-product > ul > li:hover > div {
+main > div.home-electronics > ul > li:hover > div, main > div.intelligence > ul > li:hover > div, main > div.ancillary-product > ul > li:hover > div, main > div.fitting > ul > li:hover > div, main > div.peripheral-product > ul > li:hover > div {
   -webkit-transition: none;
   transition: none;
   visibility: visible;
+}
+
+main > div.video {
+  position: relative;
+  margin-bottom: 14px;
+}
+
+main > div.video > a.view-all {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 16px;
+  line-height: 58px;
+  color: #424242;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+main > div.video > a.view-all > span {
+  padding: 4px;
+  font-size: 12px;
+  border-radius: 16px;
+  margin-left: 8px;
+  background-color: #b0b0b0;
+  color: white;
+  vertical-align: 1px;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+main > div.video > a.view-all:hover {
+  color: #ff6700;
+}
+
+main > div.video > a.view-all:hover > span {
+  background-color: #ff6700;
+}
+
+main > div.video > ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main > div.video > ul > li {
+  width: 296px;
+  height: 285px;
+  background-color: white;
+  text-align: center;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+main > div.video > ul > li:hover {
+  -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  -webkit-transform: translate3d(0, -2px, 0);
+          transform: translate3d(0, -2px, 0);
+}
+
+main > div.video > ul > li div {
+  position: relative;
+  width: 296px;
+  height: 180px;
+}
+
+main > div.video > ul > li div > img {
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
+}
+
+main > div.video > ul > li div > span {
+  position: absolute;
+  left: 20px;
+  bottom: 10px;
+  color: white;
+  border: 2px solid white;
+  width: 32px;
+  height: 20px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 30px;
+  line-height: 20px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+main > div.video > ul > li div:hover > span {
+  background-color: #ff6700;
+  border-color: #ff6700;
+}
+
+main > div.video > ul > li h3 {
+  font-size: 14px;
+  line-height: 21px;
+  color: #333;
+  font-weight: 400;
+  margin: 28px 14px 6px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+main > div.video > ul > li p {
+  height: 18px;
+  margin: 0 14px;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  color: #b0b0b0;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 main > a {
@@ -1566,5 +1708,79 @@ main > a {
 
 main > a > img {
   vertical-align: top;
+}
+
+footer > div.footer {
+  height: 332px;
+  background-color: white;
+}
+
+footer > div.footer > div {
+  width: 1226px;
+  margin: auto;
+}
+
+footer > div.footer > div > ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 27px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+footer > div.footer > div > ul > li {
+  width: 19.8%;
+  height: 25px;
+  font-size: 16px;
+  line-height: 25px;
+  text-align: center;
+  color: #616161;
+}
+
+footer > div.footer > div > ul > li:not(:last-of-type) {
+  border-right: 1px solid #e0e0e0;
+}
+
+footer > div.footer > div > ul > li > a {
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+footer > div.footer > div > ul > li > a:hover {
+  color: #ff6700;
+}
+
+footer > div.footer > div > ul > li > a > span {
+  font-size: 24px;
+  line-height: 24px;
+  vertical-align: -4px;
+  margin-right: 6px;
+}
+
+footer > div.footer > div > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 40px 0;
+}
+
+footer > div.info {
+  height: 187px;
+  padding: 30px 0;
+  background-color: #fafafa;
+}
+
+footer > div.info > div {
+  width: 1226px;
+  margin: auto;
 }
 /*# sourceMappingURL=style.css.map */

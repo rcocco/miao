@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+}
+
+div {
+  width: 1226px;
+  margin: 0 auto;
+}
+
+div > video {
+  width: 100%;
+}
+
+:target {
+  display: block;
+}
+/*# sourceMappingURL=video.css.map */
