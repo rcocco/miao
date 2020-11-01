@@ -1921,7 +1921,7 @@ footer > div.info > div > * {
 footer > div.info > div > img {
   width: 57px;
   height: 57px;
-  margin-right: 10px;
+  margin-right: 6px;
   vertical-align: top;
 }
 
@@ -1941,5 +1941,113 @@ footer > div.info > div > div > ul > li {
 
 footer > div.info > div > div > ul a:hover {
   color: #ff6700;
+}
+
+footer > div.info > div > div > div.links-img {
+  margin-top: 4px;
+}
+
+footer > div.info > div > div > div.links-img > a:nth-last-of-type(n+2) > img {
+  height: 28px;
+}
+
+footer > div.info > div > div > div.links-img > a:nth-last-of-type(1) > img {
+  height: 40px;
+}
+
+footer > div.info > img {
+  display: block;
+  margin: 30px auto 0;
+}
+
+aside {
+  position: fixed;
+  right: 0;
+  bottom: 70px;
+  z-index: 9999;
+}
+
+aside > a {
+  position: relative;
+  display: block;
+  width: 82px;
+  height: 90px;
+  border: 1px solid #f5f5f5;
+  background-color: white;
+  margin-top: -1px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 21px;
+  color: #757575;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+aside > a:first-of-type > div {
+  display: none;
+  position: absolute;
+  padding: 14px;
+  border: 1px solid #f5f5f5;
+  left: -143px;
+  top: 0;
+  background-color: white;
+}
+
+aside > a:first-of-type > div > img {
+  display: block;
+  width: 100px;
+  height: 100px;
+  margin: 6px auto;
+}
+
+aside > a:first-of-type > div > p {
+  width: 82px;
+  margin: 14px auto 0;
+  color: #757575;
+  text-align: center;
+}
+
+aside > a:first-of-type:hover > div {
+  display: block;
+}
+
+aside > a:last-of-type {
+  margin-top: 14px;
+}
+
+aside > a > img {
+  position: absolute;
+  top: 18px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 30px;
+  height: 30px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+aside > a > img:nth-of-type(2) {
+  opacity: 0;
+}
+
+aside > a > img:nth-of-type(1) {
+  opacity: 1;
+}
+
+aside > a > p {
+  margin: 56px 0 0;
+}
+
+aside > a:hover {
+  color: #ff6700;
+}
+
+aside > a:hover > img:nth-of-type(2) {
+  opacity: 1;
+}
+
+aside > a:hover > img:nth-of-type(1) {
+  opacity: 0;
 }
 /*# sourceMappingURL=style.css.map */
