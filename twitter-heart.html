@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background: url(https://css-tricks.com/wp-content/uploads/2016/06/web_heart_animation.png);
+    }
+
+    .fav:hover {
+      background-position: -2800px;
+      transition: steps(28, jump-start) 1s;
+    }
+
+    @keyframes fav {
+      to {
+        background-position: -2800px;
+      }
+    }
+
+    .fav-anime {
+      animation: fav 1s steps(29, jump-none) infinite;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="fav"></div>
+  <div class="fav-anime"></div>
+</body>
+
+</html>
