@@ -1,0 +1,63 @@
+div.number {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background-color: pink;
+  position: relative;
+  > span {
+    position: absolute;
+    width: 1.5em;
+    height: 1.5em;
+    line-height: 1.5em;
+    font-size: 32px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
+    @for $i from 1 through 12 {
+      &:nth-of-type(#{$i}){
+        transform: rotate(#{($i - 3) * 30deg}) translateX(176px) rotate(#{($i - 3) * -30deg})
+      }
+    }
+  }
+}
+
+
+div.line {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background-color: pink;
+  position: relative;
+  > span {
+    position: absolute;
+    width: 1.5em;
+    height: 1.5em;
+    line-height: 1.5em;
+    font-size: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
+    &::before {
+      display: inline-block;
+      width: 1px;
+      height: 10px;
+      content: "";
+      background-color: black;
+    }
+    @for $i from 1 through 60 {
+      &:nth-of-type(#{$i}){
+        transform: rotate(#{($i - 1) * 6deg}) translateY(-190px);
+      }
+    }
+    &:nth-of-type(5n + 1)::before{
+      height: 12px;
+      width: 4px;
+    }
+  }
+}
