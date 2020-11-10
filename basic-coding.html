@@ -13,12 +13,12 @@
     console.log((Number(prompt()) + Number(prompt())) * Number(prompt()));
   </script>
   <script type="norun" id="ch0103/03">
-    console.log((Number(prompt()) + Number(prompt())) / Number(prompt()));
+    console.log(Math.floor((Number(prompt()) + Number(prompt())) / Number(prompt())));
   </script>
   <script type="norun" id="ch0103/04">
     var a = Number(prompt());
     var b = Number(prompt());
-    console.log(a / b, a % b);
+    console.log(Math.floor(a / b), a % b);
   </script>
   <script type="norun" id="ch0103/05">
     var a = Number(prompt());
@@ -44,7 +44,7 @@
   </script>
   <script type="norun" id="ch0103/09">
     var r = Number(prompt());
-    console.log((2 * r).toFixed(4), (2 * Math.PI * r).toFixed(4), (Math.PI * r**2).toFixed(4));
+    console.log((2 * r).toFixed(4), (2 * 3.14159 * r).toFixed(4), (3.14159 * r**2).toFixed(4));
   </script>
   <script type="norun" id="ch0103/10">
     var r1 = Number(prompt());
@@ -54,7 +54,7 @@
   <script type="norun" id="ch0103/11">
     var a = Number(prompt());
     var b = Number(prompt());
-    console.log(a % b);
+    console.log(Number((a % b).toFixed(10)));
   </script>
   <script type="norun" id="ch0103/12">
     var r = Number(prompt());
@@ -237,7 +237,7 @@
   <script type="norun" id="ch0104/19">
     var a = Number(prompt());
     var b = Number(prompt());
-    var op = Number(prompt());
+    var op = prompt();
     if(op == "+"){
       console.log(a + b);
     }else if(op == "-"){
