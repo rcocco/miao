@@ -474,7 +474,7 @@
     var n = 10;
     var bounce = h * 0.5**n;
     var distance = h + (h/2)*(1-0.5**(n-1))/0.5*2;
-    console.log(distance, bounce);
+    console.log(distance.toPrecision(6), bounce.toPrecision(6));
   </script>
   <script type="norun" id="ch0105/21">
     var N = Number(prompt());
@@ -506,7 +506,6 @@
       }
       if(balance >= 100){
         var will_save = Math.floor(balance / 100) * 100;
-        console.log("存钱"+will_save);
         balance -= will_save;
         save += will_save;
       }
@@ -526,6 +525,7 @@
       }
       m -= want;
     }
+    console.log(c);
   </script>
   <script type="norun" id="ch0105/24">
     var n = Number(prompt());
@@ -541,13 +541,14 @@
         last_hour = 0;
       }
     }
+    console.log(max_last_hour > last_hour ? max_last_hour : last_hour);
   </script>
   <script type="norun" id="ch0105/25">
     // 101-888(9) 101-666(7)
     // 101-666(7,9)
     // a*7^2+b*7+c == c*9^2+b*9+a (a,b,c\in {0,1,2,3,4,5,6})
     // 49a + 7b + c == 81c + 9b + a
-    outerloop:
+    function find_num(){
       for(var c=1;c<=6;c++){
         for(var b=0;b<=6;b++){
           for(var a=1;a<=6;a++){
@@ -555,11 +556,13 @@
               console.log(49*a+7*b+c);
               console.log(String(a)+String(b)+String(c));
               console.log(String(c)+String(b)+String(a));
-              break outerloop;
+              return;
             }
           }
         }
       }
+    }
+    find_num();
   </script>
   <script type="norun" id="ch0105/26">
     var n = Number(prompt());
@@ -775,6 +778,7 @@
       rect += '\n';
     }
     for(var i=0;i<w;i++) rect += ch;
+    console.log(rect);
   </script>
   <script type="norun" id="ch0105/43">
     var n = Number(prompt());
