@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>画图</title>
+  <style>
+    canvas {
+      border: 2px solid #f0f;
+      display: block;
+      margin: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas width="400" height="300"></canvas>
+</body>
+<script>
+  var canvas = document.querySelector('canvas')
+  canvas.style.imageRendering = 'pixelated'
+  var ctx = canvas.getContext('2d')
+
+  function dot(x, y, color = 'black') {
+    x = x | 0
+    y = y | 0
+    ctx.fillStyle = color
+    ctx.fillRect(x, y, 1, 1)
+  }
+
+  // function line(x1, y1, x2, y2) {
+  //   ctx.strokeStyle = 'black'
+  //   ctx.moveTo(x1, y1)
+  //   ctx.lineTo(x2, y2)
+  //   ctx.stroke()
+  // }
+  /**
+   * YOUR TASK
+画图的题：
+画一条实线
+画一条一个实点一个空点的虚线
+画一条两个实点两个空点的虚线
+画一条三个实点两个空点的虚线
+画一条45度的斜线
+画一条30度的斜线（选做）
+在四个角画分别画一条45度的斜线以让画面看起来像一个相框
+画一条跨越画布左上角和右下角的对角线
+画一个空心矩形
+画一个实心矩形
+画一个rgb色彩空间的某一面
+画一个空心的圆
+画一个实心的圆
+画一个大小合适的sin(x)的图像
+   */
+</script>
+<script>
+  // YOUR CODE GOES BELOW
+  function line(x1, y1, x2, y2, color = 'black', solid = 1, hollow = 0) {
+    var k = (y2 - y1) / (x2 - x1);
+    var b = y2 - k * x2;
+    if (x1 == x2) {
+      // x = x1;
+      if (y1 > y2) {
+        var t = x2;
+        x2 = x1;
+        x1 = t;
+        t = y2;
+        y2 = y1;
+        y1 = t;
+      }
+      for (var y = y1, s_c = 0, h_c = 0; y <= y2; y++) {
+        if (s_c++ >= solid) {
+          if (h_c++ >= hollow) {
+            s_c = 0;
+            h_c = 0;
+          } else {
+            continue;
+          }
+        }
+        dot(x1, y, color);
+      }
+    } else if (Math.abs(x1 - x2) > Math.abs(y1 - y2)) {
+      if (x1 > x2) {
+        var t = x2;
+        x2 = x1;
+        x1 = t;
+        t = y2;
+        y2 = y1;
+        y1 = t;
+      }
+      for (var x = x1, y = 0, s_c = 0, h_c = 0; x <= x2; x++) {
+        if (s_c++ >= solid) {
+          if (h_c++ >= hollow) {
+            s_c = 0;
+            h_c = 0;
+          } else {
+            continue;
+          }
+        }
+        y = k * x + b;
+        dot(x, y, color);
+      }
+    } else {
+      if (y1 > y2) {
+        var t = x2;
+        x2 = x1;
+        x1 = t;
+        t = y2;
+        y2 = y1;
+        y1 = t;
+      }
+      for (var y = y1, x = 0, s_c = 0, h_c = 0; y <= y2; y++) {
+        if (s_c++ >= solid) {
+          if (h_c++ >= hollow) {
+            s_c = 0;
+            h_c = 0;
+          } else {
+            continue;
+          }
+        }
+        x = (y - b) / k;
+        dot(x, y, color);
+      }
+    }
+  }
+
+  function lineDegree(x1, y1, deg, len, color = 'black') {
+    while (deg < 0) deg += 360;
+    var rad = deg / 180 * Math.PI;
+    var delta_x = Math.cos(rad) * len;
+    if (Math.abs(delta_x) < 0.5) delta_x = 0;
+    var delta_y = Math.sin(rad) * len;
+    if (Math.abs(delta_y) < 0.5) delta_y = 0;
+    delta_y = -delta_y;
+    var x2 = x1 + delta_x;
+    var y2 = y1 + delta_y;
+    line(x1, y1, x2, y2, color);
+  }
+
+  function rect(x1, y1, w, h, color = 'black', solid = false) {
+    if (solid) {
+      for (var y = y1; y < y1 + h; y++) {
+        lineDegree(x1, y, 0, w, color);
+      }
+    } else {
+      lineDegree(x1, y1, 0, w, color);
+      lineDegree(x1, y1, -90, h, color);
+      lineDegree(x1, y1 + h, 0, w, color);
+      lineDegree(x1 + w, y1, -90, h, color);
+    }
+  }
+
+  function circle(a, b, r, color, solid = false) {
+    for (var x = a - r; x < a + r; x++) {
+      var d = Math.round(Math.sqrt(r ** 2 - (x - a) ** 2));
+      var y1 = b + d;
+      var y2 = b - d;
+      if (solid) {
+        line(x, y1, x, y2, color);
+      } else {
+        dot(x, y1, color);
+        dot(x, y2, color);
+      }
+    }
+    for (var y = b - r; y < b + r; y++) {
+      var d = Math.round(Math.sqrt(r ** 2 - (y - b) ** 2));
+      var x1 = a + d;
+      var x2 = a - d;
+      if (solid) {
+        line(x1, y, x2, y, color);
+      } else {
+        dot(x1, y, color);
+        dot(x2, y, color);
+      }
+    }
+  }
+
+  function sin(a, b, width, color) {
+    debugger;
+    var scale = width / 6.28;
+    for (var x = a; x < a + width; x++) {
+      var y = b - Math.sin((x - a) / scale) * scale;
+      dot(x, y, color);
+    }
+  }
+
+  function rgbCube(a, b, gap = 1) {
+    for (var x = a; x < a + Math.ceil(255 / gap); x++) {
+      for (var y = b; y < b + Math.ceil(255 / gap); y++) {
+        dot(x, y, 'rgb(255,' + ((x - a) * gap) + ',' + ((y - b) * gap) + ')');
+      }
+    }
+  }
+  // 画一条实线
+  line(200, 200, 300, 50, 'red');
+  // 画一条一个实点一个空点的虚线
+  line(50, 0, 150, 100, 'blue', 1, 1);
+  // 画一条两个实点两个空点的虚线
+  line(100, 0, 200, 100, 'black', 2, 2);
+  // 画一条三个实点两个空点的虚线
+  line(150, 0, 250, 100, 'tan', 2, 2);
+  // 画一条45度的斜线
+  lineDegree(50, 150, 0, 150, 'blue');
+  lineDegree(50, 150, 45, 150, 'red');
+  // 画一条30度的斜线（选做）
+  lineDegree(50, 150, 30, 150, 'blue');
+  // 在四个角画分别画一条45度的斜线以让画面看起来像一个相框
+  line(50, 0, 0, 50, 'rgb(255,0,255)');
+  line(349, 0, 399, 50, 'rgb(255,0,255)');
+  line(0, 249, 50, 299, 'rgb(255,0,255)');
+  line(349, 299, 399, 249, 'rgb(255,0,255)');
+  // 画一条跨越画布左上角和右下角的对角线
+  line(0, 0, 399, 299);
+  // 画一个空心矩形
+  rect(50, 50, 300, 200, 'yellow');
+  // 画一个实心矩形
+  rect(200, 200, 20, 20, 'yellow', true);
+  // 画一个rgb色彩空间的某一面
+  rgbCube(70, 160, 4);
+  // 画一个空心的圆
+  circle(200, 150, 20);
+  // 画一个实心的圆
+  circle(300, 150, 20, 'red', true);
+  // 画一个大小合适的sin(x)的图像
+  sin(0, 150, 314, 'green');
+
+</script>
+
+</html>
