@@ -705,14 +705,19 @@
     console.log(N);
   </script>
   <script type="norun" id="ch0105/38">
-    var n = Number(prompt());
-    if(n == 0){
-      console.log(0);
-    }else{
-      for(var i=n;i>0;i--){
-        console.log(Number(prompt()) * i);
+    var cases = Number(prompt());
+    var _;
+    for(var j = 0; j < cases; j++){
+      var n = Number(prompt());
+      if(n == 0){
+        _ = Number(prompt());
+        console.log(0);
+      }else{
+        for(var i=n;i>0;i--){
+          console.log(Number(prompt()) * i);
+        }
+        _ = Number(prompt());
       }
-      you_happy = Number(prompt());
     }
   </script>
   <script type="norun" id="ch0105/39">
@@ -827,6 +832,168 @@
       gold += i;
     }
     console.log(gold);
+  </script>
+  <script type="norun" id="sqrt">
+    function sqrt(n){
+      var x = n;
+      //               2^(-52) = 0.000000000000000222
+      while(Math.abs(x * x - n > 0.000000000000001)){
+        x = (x + n / x) / 2;
+      }
+      return x;
+    }
+  </script>
+  <script type="norun" id="narcissistic">
+    function narcissistic(n){
+      // abcd=a*10^3 + b*10^2 + c*10^1 + d*10^0
+      //     =a^4    + b^4 + c^4 + d^4
+      var x = n;
+      var digit = [];
+      do {
+        var r = x % 10;
+        digit.push(r);
+        x = (x - r) / 10;
+      }while(x != 0);
+      var sum = 0;
+      for(var i = 0; i < digit.length; i++){
+        sum += digit[i] ** digit.length;
+      }
+      if(sum == n) return true;
+      return false;
+    }
+  </script>
+  <script type="norun" id="narcissistics">
+    function narcissistic(n){
+      var x = n;
+      var digit = [];
+      do {
+        var r = x % 10;
+        digit.push(r);
+        x = (x - r) / 10;
+      }while(x != 0);
+      var sum = 0;
+      for(var i = 0; i < digit.length; i++){
+        sum += digit[i] ** digit.length;
+      }
+      if(sum == n) return true;
+      return false;
+    }
+    for(var n = 0; n < 10000; n++){
+      if(narcissistic(n)) console.log(n);
+    }
+  </script>
+  <script type="norun" id="palindrom">
+    function palindrom(n){
+      var result = 1;
+      for(var i = 2; i <= n; i++){
+        result *= i;
+      }
+      return result;
+    }
+  </script>
+  <script type="norun" id="weekday">
+    // 给写年和月，计算这个月的第一天是星期几
+    // 0 星期日
+    function weekday(year, month) {
+      t = [ 0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4 ];
+      year -= month < 3
+      return (( year + Math.floor(year / 4) - Math.floor(year / 100) + Math.floor(year / 400) + t[month - 1] + 1) % 7);
+    }
+  </script>
+  <script type="norun" id="complete-number">
+    // 写一个函数求一个数是否为完全数（它的因子之和等于它自己）
+    function complete_number(n) {
+      var sum = 1;
+      for(var i = 2; i < n; i++){
+        if(n % i == 0) sum += i;
+      }
+      if(sum == n) return true;
+      return false;
+    }
+  </script>
+  <script type="norun" id="complete-numbers">
+    // 输出1000以内的所有完数
+    function complete_number(n) {
+      var sum = 1;
+      for(var i = 2; i < n; i++){
+        if(n % i == 0) sum += i;
+      }
+      if(sum == n) return true;
+      return false;
+    }
+    for(var i = 1; i < 1000; i++){
+      if(complete_number(i)) console.log(i);
+    }
+  </script>
+  <script type="norun" id="prime">
+    // 判断素数
+    function prime(n){
+      if(n == 2 || n == 3) return true;
+      if(n < 2 || n % 6 != 1 && n % 6 != 5) return false;
+      sqrt_n = Math.sqrt(n);
+      for(var i = 2; i <= sqrt_n; i++){
+        if(n % i == 0) return false;
+      }
+      return true;
+    }
+  </script>
+  <script type="norun" id="primes">
+    // 输出1000以内的素数
+    function prime(n){
+      if(n == 2 || n == 3) return true;
+      if(n < 2 || n % 6 != 1 && n % 6 != 5) return false;
+      sqrt_n = Math.sqrt(n);
+      for(var i = 2; i <= sqrt_n; i++){
+        if(n % i == 0) return false;
+      }
+      return true;
+    }
+    for(var i = 0; i < 1000; i++){
+      if(prime(i)) console.log(i);
+    }
+  </script>
+  <script type="norun" id="itob">
+    // 不使用隐式类型转换将一个数字转换为字符串
+    function itob(n){
+      var str = "";
+      var negative = false;
+      if(n < 0){
+        negative = true;
+        n = -n;
+      }
+      while(n != 0){
+        var r = n % 10;
+        str = String.fromCharCode(0x30 + r) + str;
+        n = (n - r) / 10;
+      }
+      if(negative) str = "-" + str;
+      return str;
+    }
+  </script>
+  <script type="norun" id="lcf">
+    // 写函数求出两个数的最大公约数
+    function lcf(a, b){
+      do {
+        var r = a % b;
+        a = b;
+        b = r;
+      }while(r != 0);
+      return a;
+    }
+  </script>
+  <script type="norun" id="lcm">
+    // 写函数求出两个数的最小公倍数
+    function lcf(a, b){
+      do {
+        var r = a % b;
+        a = b;
+        b = r;
+      }while(r != 0);
+      return a;
+    }
+    function lcm(a, b){
+      return a * b / lcf(a,b);
+    }
   </script>
 </body>
 </html>
