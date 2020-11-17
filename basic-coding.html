@@ -836,8 +836,8 @@
   <script type="norun" id="sqrt">
     function sqrt(n){
       var x = n;
-      //               2^(-52) = 0.000000000000000222
-      while(Math.abs(x * x - n > 0.000000000000001)){
+      //               2^(-52)  = 0.000000000000000222
+      while(Math.abs(x * x - n) > 0.0000000000005){
         x = (x + n / x) / 2;
       }
       return x;
@@ -928,11 +928,11 @@
   <script type="norun" id="prime">
     // 判断素数
     function prime(n){
-      if(n == 2 || n == 3) return true;
-      if(n < 2 || n % 6 != 1 && n % 6 != 5) return false;
-      sqrt_n = Math.sqrt(n);
-      for(var i = 2; i <= sqrt_n; i++){
-        if(n % i == 0) return false;
+      if(n <= 1) return false;
+      if(n <= 3) return true;
+      if(n%2 == 0 || n%3 == 0) return false;
+      for(var i = 5; i * i <= n; i += 6){
+        if(n % i == 0 || n%(i+2) == 0) return false;
       }
       return true;
     }
