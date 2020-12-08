@@ -101,9 +101,10 @@ var rcocco = function() {
     return result;
   }
   return {
-    test,
+    chunk,
     compact,
     concat,
     difference,
+    differenceBy,
   }
 }();
