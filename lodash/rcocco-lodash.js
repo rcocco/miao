@@ -224,6 +224,7 @@ var rcocco = function() {
     }
   }
   function join(arr, separator=',') {
+    separator = String(separator);
     let str = "";
     let i;
     for(i = 0; i < arr.length - 1; i++){
@@ -257,5 +258,10 @@ var rcocco = function() {
     join,
     last,
     lastIndexOf,
+    isEqual,
+    identity,
+    matches,
+    matchesProperty,
+    property
   }
 }();
