@@ -167,6 +167,117 @@ var rcocco = function() {
     }
     return -1;
   }
+  function findLastIndex(arr, predicate = identity, fromIndex = arr.length - 1) {
+    if(Array.isArray(predicate))
+      predicate = matchesProperty(predicate[0], predicate[1]);
+    else if(typeof predicate === 'object')
+      predicate = matches(predicate);
+    else if(typeof predicate === 'string')
+      predicate = property(predicate);
+    for(let i = fromIndex; i >= 0; i--){
+      if(predicate(arr[i])) return i;
+    }
+    return -1;
+  }
+  function flatten(arr) {
+    let result = [];
+    for(let i = 0; i < arr.length; i++){
+      if(Array.isArray(arr[i])){
+        for(let j = 0; j < arr[i].length; j++){
+          result.push(arr[i][j]);
+        }
+      }else{
+        result.push(arr[i]);
+      }
+    }
+    return result;
+  }
+  function flattenDeep(arr) {
+    let result = [];
+    for(let i = 0; i < arr.length; i++){
+      if(Array.isArray(arr[i])){
+        let flattenArr = flattenDeep(arr[i]);
+        for(let j = 0; j < flattenArr.length; j++){
+          result.push(flattenArr[j]);
+        }
+      }else{
+        result.push(arr[i]);
+      }
+    }
+    return result;
+  }
+  function flattenDepth(arr, depth = 1) {
+    let result = [];
+    for(let i = 0; i < arr.length; i++){
+      if(depth > 0 && Array.isArray(arr[i])){
+        let flattenArr = flattenDepth(arr[i], depth-1);
+        for(let j = 0; j < flattenArr.length; j++){
+          result.push(flattenArr[j]);
+        }
+      }else{
+        result.push(arr[i]);
+      }
+    }
+    return result;
+  }
+  function fromPairs(arr) {
+    let obj = {};
+    for(let i = 0; i < arr.length; i++){
+      // key = arr[i][0]
+      // value = arr[i][1]
+      obj[arr[i][0]] = arr[i][1];
+    }
+    return obj;
+  }
+  function head(arr) {
+    return arr[0];
+  }
+  function indexOf(arr, val, fromIndex = 0) {
+    if(fromIndex < 0) fromIndex += arr.length;
+    for(let i = fromIndex; i < arr.length; i++){
+      if(arr[i] === val) return i;
+    }
+    return -1;
+  }
+  function initial(arr) {
+    let result = [];
+    for(let i = 0; i < arr.length - 1; i++){
+      result.push(arr[i]);
+    }
+    return result;
+  }
+  function intersection(...arrs) {
+    // 数组内的值可能是多个不同类型
+    // SameValueZero算法如果Type不相同返回false
+    // 即 1 === "1" 为false
+    // 但对象的key都会转换为字符串
+    // 不能用对象作为hashmap
+    // 用ES6提供的Map
+    // 待修改
+    if(arrs.length == 0) return [];
+    else if(arrs.length == 1) {
+      // 如果只有一个数组，它自身的元素就是交集
+      let result = [];
+      for(let j = 0; j < arrs[0].length; j++){
+        result.push(arrs[0][j]);
+      }
+      return result;
+    }
+    let setfirst = {};
+    let set = {};
+    // 要求arrs[0]是数组，如果没传参数？
+    for(let j = 0; j < arrs[0].length; j++) {
+      setfirst[arrs[0][j]] = j; // 值：索引
+    }
+    for(let i = 1; i < arrs.length; i++) {
+      for(let j = 0; j < arrs[i].length; j++){
+        if(arrs[i][j] in setfirst) {
+          set[arrs[i][j]] = setfirst[arrs[i][j]];
+        }
+      }
+    }
+    return Object.keys(set).sort((a,b)=>set[a]-set[b]);
+  }
   // Lang
   function isEqual(x, y) {
     if(x === y) return true;
@@ -255,6 +366,14 @@ var rcocco = function() {
     dropWhile,
     fill,
     findIndex,
+    findLastIndex,
+    flatten,
+    flattenDeep,
+    flattenDepth,
+    fromPairs,
+    head,
+    indexOf,
+    initial,
     join,
     last,
     lastIndexOf,
