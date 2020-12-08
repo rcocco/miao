@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>画图</title>
+  <script src="lena.js"></script>
   <style>
     canvas {
       border: 2px solid #f0f;
@@ -191,6 +192,16 @@
       }
     }
   }
+
+  function drawLena() {
+    for(let i = 0; i < lena.length; i++){
+      for(let j = 0; j < lena[i].length; j++){
+        dot(i, j, "rgb("+lena[i][j].join()+")");
+      }
+    }
+  }
+  // drawLena();
+  // document.querySelector("canvas").style.transform = "rotateZ(90deg) translateX(50px)";
   // 画一条实线
   line(200, 200, 300, 50, 'red');
   // 画一条一个实点一个空点的虚线
