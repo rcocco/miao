@@ -34,34 +34,17 @@ var rcocco = function() {
     }
     return result;
   }
-  // function SameValueNonNumber(x, y) {
-  //   if(x === undefined) return true;
-  //   if(x === null) return true;
-  //   if(typeof x === 'string') return x === y;
-  //   if(typeof x === 'boolean') return x === y;
-  //   // if(typeof x === 'symbol') 规范要求判断，如何判断？
-  //   return x === y;
-  // }
-  // function SameValueZero(x, y) {
-  //   if(typeof x !== typeof y) return false;
-  //   if(typeof x === "number") {
-  //     if(x !== x && y !== y) return true;
-  //     if(x === y) return true;
-  //     return false;
-  //   }
-  //   return SameValueNonNumber(x,y);
-  // }
   function difference(arr, ...arrs){
     let result = [];
-    let set = {};
+    let set = new Set(); // set使用SameValueZero算法，不会像对象键那样转字符串再比较
     for(let i = 0; i < arrs.length; i++){
       for(let j = 0; j < arrs[i].length; j++){
         let key = arrs[i][j];
-        set[key] = undefined;
+        set.add(key);
       }
     }
     for(let i = 0; i < arr.length; i++){
-      if(!(arr[i] in set)) result.push(arr[i]);
+      if(!set.has(arr[i])) result.push(arr[i]);
     }
     return result;
   }
@@ -77,15 +60,15 @@ var rcocco = function() {
       }
     }
     let result = [];
-    let set = {};
+    let set = new Set();
     for(let i = 0; i < vals.length; i++){
       for(let j = 0; j < vals[i].length; j++){
         let key = iteratee(vals[i][j]);
-        set[key] = undefined;
+        set.add(key);
       }
     }
     for(let i = 0; i < arr.length; i++){
-      if(!(iteratee(arr[i]) in set)) result.push(arr[i]);
+      if(!set.has(iteratee(arr[i]))) result.push(arr[i]);
     }
     return result;
   }
@@ -251,9 +234,8 @@ var rcocco = function() {
     // SameValueZero算法如果Type不相同返回false
     // 即 1 === "1" 为false
     // 但对象的key都会转换为字符串
-    // 不能用对象作为hashmap
-    // 用ES6提供的Map
-    // 待修改
+    // 不能用对象作为set
+    // 用ES6提供的Set
     if(arrs.length == 0) return [];
     else if(arrs.length == 1) {
       // 如果只有一个数组，它自身的元素就是交集
@@ -263,20 +245,162 @@ var rcocco = function() {
       }
       return result;
     }
-    let setfirst = {};
-    let set = {};
-    // 要求arrs[0]是数组，如果没传参数？
-    for(let j = 0; j < arrs[0].length; j++) {
-      setfirst[arrs[0][j]] = j; // 值：索引
+    let setlast = new Set();
+    let set = new Set();
+    for(let j = 0; j < arrs[arrs.length-1].length; j++) {
+      setlast.add(arrs[arrs.length-1][j]);
     }
-    for(let i = 1; i < arrs.length; i++) {
+    for(let i = 0; i < arrs.length - 1; i++) {
       for(let j = 0; j < arrs[i].length; j++){
-        if(arrs[i][j] in setfirst) {
-          set[arrs[i][j]] = setfirst[arrs[i][j]];
+        if(setlast.has(arrs[i][j])) {
+          set.add(arrs[i][j]);
         }
       }
     }
-    return Object.keys(set).sort((a,b)=>set[a]-set[b]);
+    return Array.from(set);
+  }
+  function intersectionBy(...arrs) {
+    if(arrs.length == 0) return [];
+    else if(arrs.length == 1) {
+      let result = [];
+      for(let j = 0; j < arrs[0].length; j++){
+        result.push(arrs[0][j]);
+      }
+      return result;
+    }
+    // assert arrs.length > 1
+    let iteratee = identity;
+    if(typeof arrs[arrs.length-1] === 'function'){
+      iteratee = arrs[arrs.length-1];
+      arrs.length -= 1;
+    }else if(typeof arrs[arrs.length-1] === 'string'){
+      iteratee = property(arrs[arrs.length-1]);
+      arrs.length -= 1;
+    }
+    let setlast = new Set();
+    let set = new Set();
+    for(let j = 0; j < arrs[arrs.length-1].length; j++) {
+      setlast.add(iteratee(arrs[arrs.length-1][j]));
+    }
+    for(let i = 0; i < arrs.length - 1; i++) {
+      for(let j = 0; j < arrs[i].length; j++){
+        if(setlast.has(iteratee(arrs[i][j]))) {
+          set.add(arrs[i][j]);
+        }
+      }
+    }
+    return Array.from(set);
+  }
+  function intersectionWith(...arrs) {
+    let result = [];
+    if(arrs.length == 0) return result;
+    else if(arrs.length == 1) {
+      for(let j = 0; j < arrs[0].length; j++){
+        result.push(arrs[0][j]);
+      }
+      return result;
+    }
+    comparator = arrs[arrs.length-1];
+    arrs.length -= 1;
+    for(let i = 0; i < arrs[0].length; i++) {
+      // arrs[0][i] 第一个数组中的值
+      outer:
+      for(let j = 1; j < arrs.length; j++) {
+        for(let k = 0; k < arrs[j].length; k++){
+          // arrs[j][k] 用于对比的值
+          if(comparator(arrs[0][i], arrs[j][k])){
+            result.push(arrs[0][i]);
+            continue outer;
+          }
+        }
+      }
+    }
+    return result;
+  }
+  function join(arr, separator=',') {
+    separator = String(separator);
+    let str = "";
+    let i;
+    for(i = 0; i < arr.length - 1; i++){
+      str += arr[i]+separator;
+    }
+    if(i < arr.length) str += arr[i];
+    return str;
+  }
+  function last(arr) {
+    return arr[arr.length-1];
+  }
+  function lastIndexOf(arr, val, fromIndex=arr.length-1) {
+    for(let i = fromIndex; i >= 0; i--){
+      if(arr[i] === val) return i;
+    }
+    return -1;
+  }
+  function nth(arr, n = 0) {
+    if(n < 0) n += arr.length;
+    return arr[n];
+  }
+  function pull(arr, ...vals) {
+    let set = new Set(arr);
+    for(let i = 0; i < vals.length; i++){
+      set.delete(vals[i]);
+    }
+    let i = 0;
+    for(let j = 0; j < arr.length; j++){
+      if(set.has(arr[j])){
+        arr[i] = arr[j];
+        i++;
+      }
+    }
+    arr.length = i;
+    return arr;
+  }
+  function pullAll(arr, vals) {
+    return pull(arr, ...vals);
+  }
+  function pullAllBy(arr, vals, iteratee = identity) {
+    if(typeof iteratee === 'string')
+      iteratee = property(iteratee);
+    let set = new Set();
+    for(let i = 0; i < arr.length; i++){
+      set.add(iteratee(arr[i]));
+    }
+    for(let i = 0; i < vals.length; i++){
+      set.delete(iteratee(vals[i]));
+    }
+    let i = 0;
+    for(let j = 0; j < arr.length; j++){
+      if(set.has(iteratee(arr[j]))){
+        arr[i] = arr[j];
+        i++;
+      }
+    }
+    arr.length = i;
+    return arr;
+  }
+  function pullAllWith(arr, vals, comparator) {
+    let i = 0;
+    for(let j = 0; j < arr.length; j++){
+      // arr[j]用来比较
+      let k;
+      for(k = 0; k < vals.length; k++){
+        // vals[k]用来比较
+        if(comparator(arr[j], vals[k])) {
+          break;
+        }
+      }
+      if(k == vals.length) {
+        arr[i] = arr[j];
+        i++;
+      }
+    }
+    arr.length = i;
+    return arr;
+  }
+  function pullAt(arr, ...indexes) {
+    // indexes的元素可能是数组，也可能是数字
+    // 从arr中删除指定索引的元素
+    // 返回所有被删除的元素组成的数组，且indexes指定的顺序
   }
   // Lang
   function isEqual(x, y) {
@@ -334,25 +458,6 @@ var rcocco = function() {
       return obj;
     }
   }
-  function join(arr, separator=',') {
-    separator = String(separator);
-    let str = "";
-    let i;
-    for(i = 0; i < arr.length - 1; i++){
-      str += arr[i]+separator;
-    }
-    if(i < arr.length) str += arr[i];
-    return str;
-  }
-  function last(arr) {
-    return arr[arr.length-1];
-  }
-  function lastIndexOf(arr, val, fromIndex=arr.length-1) {
-    for(let i = fromIndex; i >= 0; i--){
-      if(arr[i] === val) return i;
-    }
-    return -1;
-  }
   return {
     chunk,
     compact,
@@ -374,9 +479,18 @@ var rcocco = function() {
     head,
     indexOf,
     initial,
+    intersection,
+    intersectionBy,
+    intersectionWith,
     join,
     last,
     lastIndexOf,
+    nth,
+    pull,
+    pullAll,
+    pullAllBy,
+    pullAllWith,
+
     isEqual,
     identity,
     matches,
