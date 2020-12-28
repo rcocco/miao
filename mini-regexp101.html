@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #regexp,
+    #text,
+    #output {
+      width: 300px;
+    }
+    span.mark:nth-of-type(odd) {
+      background-color: lightcyan;
+    }
+
+    span.mark:nth-of-type(even) {
+      background-color: lightskyblue;
+    }
+  </style>
+</head>
+
+<body>
+  <p>正则表达式 <button onclick="run()">运行</button></p>
+  <input type="text" name="regexp" id="regexp">
+  <div>
+    <label>
+      <input type="checkbox" name="global" id="global">g
+    </label>
+    <label>
+      <input type="checkbox" name="multiline" id="multiline">m
+    </label>
+    <label>
+      <input type="checkbox" name="insensitive" id="insensitive">i
+    </label>
+  </div>
+  <p>文本</p>
+  <textarea name="text" id="text" cols="30" rows="10"></textarea>
+  <p>输出</p>
+  <div id="output"></div>
+  <script>
+    function run() {
+      output.innerHTML = "";
+      if (!regexp.value || !text.value) return;
+      let re = null;
+      let flags = "";
+      if (global.checked) flags += "g";
+      if (multiline.checked) flags += "m";
+      if (insensitive.checked) flags += "i";
+      try {
+        re = new RegExp(regexp.value, flags);
+      } catch (e) {
+        output.innerHTML = e.name + ": " + e.message;
+        return;
+      }
+      let match = null;
+      let lastIndex = re.lastIndex;
+      let result = "";
+      while (match = re.exec(text.value)) {
+        let start = match.index;
+        let end = match.index + match[0].length;
+        result += text.value.slice(lastIndex, start) +
+          mark(text.value, start, end);
+        if (lastIndex == re.lastIndex) {
+          lastIndex = end;
+          break;
+        }
+        else lastIndex = re.lastIndex;
+      }
+      result += text.value.slice(lastIndex);
+      output.innerHTML = result;
+
+      // else {
+      //   match = re.exec(text.value);
+      //   let start = match.index;
+      //   let end = match.index + match[0].length;
+      //   output.innerHTML = text.value.slice(0, start) +
+      //     mark(text.value, start, end) + text.value.slice(end);
+      // }
+    }
+    function mark(str, start, end) {
+      return '<span class="mark" data-pos-start="' +
+        start + '" data-pos-end="' + end +
+        '">' + str.slice(start, end) + "</span>"
+    }
+  </script>
+</body>
+
+</html>
