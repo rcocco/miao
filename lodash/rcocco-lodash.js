@@ -397,10 +397,34 @@ var rcocco = function() {
     arr.length = i;
     return arr;
   }
+  // 未测试
   function pullAt(arr, ...indexes) {
     // indexes的元素可能是数组，也可能是数字
     // 从arr中删除指定索引的元素
     // 返回所有被删除的元素组成的数组，且indexes指定的顺序
+    indexes = flatten(indexes);
+    let removeArr = [];
+    for(let i = 0; i < indexes.length; i++) {
+      removeArr.push(arr[indexes[i]]);
+    }
+    indexes.sort();
+    for(let i = indexes.length - 1; i >= 0; i--) {
+      indexes[i]
+      for(let j = indexes[i]; j < arr.length - 1; j++) {
+        arr[j] = arr[j+1];
+      }
+      arr.length--;
+    }
+    return removeArr;
+  }
+  function remove(arr, predicate = identity) {
+    let removeArr = [];
+    for(let i = 0; i < arr.length; i++) {
+      if(predicate(arr[i], i, arr))
+        removeArr.push(arr[i]);
+    }
+    pull(arr, ...removeArr);
+    return removeArr;
   }
   // Lang
   function isEqual(x, y) {
